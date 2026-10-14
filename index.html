@@ -97,6 +97,19 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
   .crest{width:76px}
 }
 @media (prefers-reduced-motion:reduce){.step.on,.step.out{animation:none}.bar i{transition:none}}
+.how{list-style:none;display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin:-8px auto 32px;max-width:720px;font-size:13px;color:var(--mute)}
+.how li{display:flex;align-items:center;gap:8px}
+.how b{width:22px;height:22px;border:1px solid var(--gold-d);border-radius:50%;display:grid;place-items:center;font-size:11px;color:var(--gold);font-weight:500}
+.scale{display:grid;grid-template-columns:repeat(10,1fr);gap:8px}
+.scale .opt{justify-content:center;padding:16px 0;font-size:18px}
+.price{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 2px;margin:0 0 22px}
+.price span{color:var(--mute);font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+.price strong{font-family:"Cormorant Garamond",serif;font-size:30px;color:var(--gold);font-weight:600}
+.price small{font-size:15px;color:var(--mute)}
+.next{font-size:14px;color:var(--mute);margin:-6px 0 6px}
+.next b{color:var(--ink);font-weight:500}
+.reveal{margin-top:22px}
+@media (max-width:560px){.scale{grid-template-columns:repeat(5,1fr)}.how{flex-direction:column;align-items:center;gap:10px}}
 </style>
 </head>
 <body>
@@ -105,21 +118,27 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
   <div class="top"><button id="back" type="button" hidden>&larr; Back</button><span id="count"></span></div>
 </header>
 
+
 <main id="app">
 <!-- Honeypot: invisible to people, bots fill it -->
 <div class="hp" aria-hidden="true"><label>Website<input type="text" id="hp_site" tabindex="-1" autocomplete="off"></label></div>
 
-<!-- 0 · Intro -->
+<!-- Intro -->
 <section class="step on center" data-step="intro">
   <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double.png?w=240" alt="Order of the Knights of the Holy Grail">
   <div class="eyebrow">Order of the Knights of the Holy Grail</div>
   <h1>Petition for <em>Admission</em></h1>
-  <p class="lead">The Order admits a limited number of men each year. Answer with honesty: every petition is read personally by the Council.</p>
+  <p class="lead">The Knight's Path: weekly formation and daily accountability in body, faith, work and mind, within a true brotherhood.</p>
+  <ol class="how">
+    <li><b>1</b>Submit your petition</li>
+    <li><b>2</b>The Council reviews it personally</li>
+    <li><b>3</b>If admitted, you join the Order</li>
+  </ol>
   <button class="btn" data-next>Begin your petition</button>
   <p class="hint" style="margin-top:18px">About 3 minutes &middot; Your answers are confidential</p>
 </section>
 
-<!-- 1 · Name -->
+<!-- 01 Name -->
 <section class="step" data-step="name" data-q>
   <div class="eyebrow"><b>01</b>Your name</div>
   <h2>What is your first name?</h2>
@@ -129,24 +148,36 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
   <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd">press <kbd>Enter &crarr;</kbd></span></div>
 </section>
 
-<!-- 2 · Goals -->
+<!-- 02 Email -->
+<section class="step" data-step="email" data-q>
+  <div class="eyebrow"><b>02</b>Contact</div>
+  <h2><span class="nm"></span>where should the Council send its <em>decision</em>?</h2>
+  <p class="lead">Your email is used only for your petition.</p>
+  <input type="email" id="f_email" maxlength="120" autocomplete="email" placeholder="name@example.com">
+  <label class="check"><input type="checkbox" id="f_privacy"><span>I agree that the Order may store and use my answers to evaluate my petition, as described in the <a href="https://orderoftheholygrail.org/privacy-policy/" target="_blank" rel="noopener">privacy policy</a>.</span></label>
+  <div class="err"></div>
+  <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd">press <kbd>Enter &crarr;</kbd></span></div>
+</section>
+
+<!-- 03 Goals -->
 <section class="step" data-step="goals" data-q>
-  <div class="eyebrow"><b>02</b>The Knight's Path</div>
-  <h2><span class="nm"></span>who do you want to <em>become</em> in the next 12 months?</h2>
+  <div class="eyebrow"><b>03</b>The Knight's Path</div>
+  <h2>Who do you want to <em>become</em> in the next 12 months?</h2>
   <p class="lead">Choose all that apply.</p>
   <div class="opts" data-multi="goals">
     <button type="button" class="opt" data-v="Body"><span class="k">A</span><span>Stronger in body and discipline<small>Training, health, self-mastery</small></span></button>
     <button type="button" class="opt" data-v="Spirit"><span class="k">B</span><span>Deeper in faith and prayer<small>A real, daily life with Christ</small></span></button>
     <button type="button" class="opt" data-v="Work"><span class="k">C</span><span>Greater in work and enterprise<small>Career, business, responsibility</small></span></button>
     <button type="button" class="opt" data-v="Mind"><span class="k">D</span><span>Clearer in mind and judgment<small>Study, focus, sound decisions</small></span></button>
+    <button type="button" class="opt" data-v="Brotherhood"><span class="k">E</span><span>Part of a true brotherhood<small>Friends in faith, mentors, people who hold you accountable</small></span></button>
   </div>
   <div class="err"></div>
   <div class="actions"><button class="btn" data-next>Continue</button></div>
 </section>
 
-<!-- 3 · Obstacle -->
+<!-- 04 Obstacle -->
 <section class="step" data-step="obstacle" data-q>
-  <div class="eyebrow"><b>03</b>The obstacle</div>
+  <div class="eyebrow"><b>04</b>The obstacle</div>
   <h2>What is holding you back <em>today</em>?</h2>
   <p class="lead">Be specific. No one becomes better by hiding from the truth.</p>
   <textarea id="f_obstacle" maxlength="1200" placeholder="Write freely..."></textarea>
@@ -154,30 +185,18 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
   <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd"><kbd>Ctrl</kbd>+<kbd>Enter &crarr;</kbd></span></div>
 </section>
 
-<!-- 4 · Tried alone -->
-<section class="step" data-step="alone" data-q>
-  <div class="eyebrow"><b>04</b>Experience</div>
-  <h2>Have you tried to change this <em>alone</em> before?</h2>
-  <p class="lead">&nbsp;</p>
-  <div class="opts" data-single="alone">
-    <button type="button" class="opt" data-v="Yes, more than once"><span class="k">A</span><span>Yes, more than once</span></button>
-    <button type="button" class="opt" data-v="Yes, once"><span class="k">B</span><span>Yes, once</span></button>
-    <button type="button" class="opt" data-v="No, never seriously"><span class="k">C</span><span>No, never seriously</span></button>
+<!-- 05 Commitment scale -->
+<section class="step" data-step="scale" data-q>
+  <div class="eyebrow"><b>05</b>Commitment</div>
+  <h2>From 1 to 10, how committed are you to changing this in the next <em>90 days</em>?</h2>
+  <p class="lead">1 = just curious &middot; 10 = nothing will stop me</p>
+  <div class="scale" data-single="scale" data-noletters>
+    <button type="button" class="opt" data-v="1">1</button><button type="button" class="opt" data-v="2">2</button><button type="button" class="opt" data-v="3">3</button><button type="button" class="opt" data-v="4">4</button><button type="button" class="opt" data-v="5">5</button><button type="button" class="opt" data-v="6">6</button><button type="button" class="opt" data-v="7">7</button><button type="button" class="opt" data-v="8">8</button><button type="button" class="opt" data-v="9">9</button><button type="button" class="opt" data-v="10">10</button>
   </div>
   <div class="err"></div>
 </section>
 
-<!-- 5 · Why -->
-<section class="step" data-step="why" data-q>
-  <div class="eyebrow"><b>05</b>Your reason</div>
-  <h2>Why the Order, and why <em>now</em>?</h2>
-  <p class="lead">This is the answer the Council reads most carefully.</p>
-  <textarea id="f_why" maxlength="1500" placeholder="Write freely..."></textarea>
-  <div class="err"></div>
-  <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd"><kbd>Ctrl</kbd>+<kbd>Enter &crarr;</kbd></span></div>
-</section>
-
-<!-- 6 · Faith -->
+<!-- 06 Faith -->
 <section class="step" data-step="faith" data-q>
   <div class="eyebrow"><b>06</b>Faith</div>
   <h2>What is your Christian <em>confession</em>?</h2>
@@ -194,64 +213,68 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
   <div class="actions"><button class="btn" data-next>Continue</button></div>
 </section>
 
-<!-- 7 · Statement -->
+<!-- Statement -->
 <section class="step center" data-step="statement">
   <div class="rule"></div>
   <p class="quote">The Order is not for everyone.<br>It asks for <em>discipline</em>, <em>presence</em> and <em>commitment</em>.</p>
   <div class="rule"></div>
-  <p class="lead">Those who are admitted are expected to walk the Path with seriousness, alongside their brothers.</p>
+  <p class="lead">Those who are admitted are expected to walk the Path with seriousness, alongside the other members of the Order.</p>
   <button class="btn" data-next>I understand</button>
 </section>
 
-<!-- 8 · Investment -->
-<section class="step" data-step="invest" data-q>
-  <div class="eyebrow"><b>07</b>Commitment</div>
-  <h2>How much are you prepared to invest <em>each month</em> in your formation?</h2>
-  <p class="lead">Membership includes the Knight's Path, mentorship and life within the Order.</p>
-  <div class="opts" data-single="invest">
-    <button type="button" class="opt" data-v="Up to EUR 50"><span class="k">A</span><span>Up to &euro;50 per month</span></button>
-    <button type="button" class="opt" data-v="EUR 50 to 150"><span class="k">B</span><span>&euro;50 to &euro;150 per month</span></button>
-    <button type="button" class="opt" data-v="EUR 150 to 300"><span class="k">C</span><span>&euro;150 to &euro;300 per month</span></button>
-    <button type="button" class="opt" data-v="Over EUR 300"><span class="k">D</span><span>More than &euro;300 per month</span></button>
-    <button type="button" class="opt" data-v="Not ready"><span class="k">E</span><span>I am not ready to invest yet</span></button>
+<!-- 07 Price -->
+<section class="step" data-step="price" data-q>
+  <div class="eyebrow"><b>07</b>Membership</div>
+  <h2>Membership is <em>&euro;29 per month</em>. Are you ready to commit?</h2>
+  <p class="lead">It includes the Knight's Path: weekly formation, daily accountability and life within the Order. You can leave at any time.</p>
+  <div class="opts" data-single="ready">
+    <button type="button" class="opt" data-v="Yes"><span class="k">A</span><span>Yes, I am ready</span></button>
+    <button type="button" class="opt" data-v="Not yet"><span class="k">B</span><span>Not yet</span></button>
   </div>
   <div class="err"></div>
 </section>
 
-<!-- 9 · About -->
+<!-- 08 Sponsor -->
+<section class="step" data-step="sponsor" data-q>
+  <div class="eyebrow"><b>08</b>Introduction</div>
+  <h2>Is a member of the Order <em>introducing</em> you?</h2>
+  <p class="lead">Candidates presented by a member are reviewed with priority.</p>
+  <div class="opts" data-single="sponsor" data-stay>
+    <button type="button" class="opt" data-v="Yes"><span class="k">A</span><span>Yes</span></button>
+    <button type="button" class="opt" data-v="No"><span class="k">B</span><span>No</span></button>
+  </div>
+  <div class="field reveal" id="sponsorField" hidden><label for="f_sponsor">Name of the member</label><input type="text" id="f_sponsor" maxlength="80" placeholder="First and last name"></div>
+  <div class="err"></div>
+  <div class="actions"><button class="btn" data-next>Continue</button></div>
+</section>
+
+<!-- 09 About -->
 <section class="step" data-step="about" data-q>
-  <div class="eyebrow"><b>08</b>About you</div>
+  <div class="eyebrow"><b>09</b>About you</div>
   <h2>Tell us a little <em>about yourself</em>.</h2>
   <p class="lead">&nbsp;</p>
   <div class="field"><label for="f_age">Age</label><input type="number" id="f_age" min="18" max="99" inputmode="numeric" placeholder="e.g. 34"></div>
   <div class="field"><label for="f_country">Country</label><input type="text" id="f_country" maxlength="60" autocomplete="country-name" placeholder="e.g. Italy"></div>
   <div class="field"><label for="f_job">Profession</label><input type="text" id="f_job" maxlength="80" autocomplete="organization-title" placeholder="e.g. Entrepreneur"></div>
-  <div class="err"></div>
-  <div class="actions"><button class="btn" data-next>Continue</button></div>
-</section>
-
-<!-- 10 · Contact -->
-<section class="step" data-step="contact" data-q>
-  <div class="eyebrow"><b>09</b>Contact</div>
-  <h2>Where can the Council <em>reach you</em>?</h2>
-  <p class="lead">You will receive the outcome of your petition here.</p>
-  <div class="field"><label for="f_email">Email</label><input type="email" id="f_email" maxlength="120" autocomplete="email" placeholder="name@example.com"></div>
   <div class="field"><label for="f_phone">WhatsApp (with country code)</label><input type="tel" id="f_phone" maxlength="24" autocomplete="tel" placeholder="+39 333 123 4567"></div>
-  <label class="check"><input type="checkbox" id="f_privacy"><span>I agree that the Order may store and use my answers to evaluate my petition, as described in the <a href="https://orderoftheholygrail.org/privacy-policy/" target="_blank" rel="noopener">privacy policy</a>.</span></label>
+  <div class="field"><label for="f_source">How did you hear about the Order?</label>
+    <select id="f_source"><option value="">Select</option><option>Instagram</option><option>YouTube</option><option>TikTok</option><option>A friend or member</option><option>Google</option><option>Other</option></select></div>
   <div class="err"></div>
   <div class="actions"><button class="btn" data-next>Continue</button></div>
 </section>
 
-<!-- 11 · Review & pay -->
+<!-- Review & pay -->
 <section class="step" data-step="review">
   <div class="eyebrow">Final step</div>
   <h2><span class="nm"></span>your petition is <em>ready</em>.</h2>
-  <p class="lead">Review your details, then complete your petition with the admission contribution.</p>
+  <p class="lead">Review your details, then complete your petition with your first monthly contribution.</p>
   <div class="card"><dl class="sum" id="sum"></dl></div>
+  <div class="price"><span>Membership</span><strong>&euro;29 <small>/ month</small></strong></div>
   <div class="guar">
     <svg width="30" height="34" viewBox="0 0 30 34" fill="none"><path d="M15 1 2 6v10c0 8 6 14 13 17 7-3 13-9 13-17V6L15 1Z" stroke="#c9a96a" stroke-width="1.5"/><path d="m9.5 17 4 4 7-8" stroke="#c9a96a" stroke-width="1.8"/></svg>
     <div><strong>Full refund guarantee</strong>If you are not admitted to the Order, you receive a full refund of your contribution.</div>
   </div>
+  <p class="next"><b>What happens next:</b> the Council reviews your petition personally and replies by email. If admitted, you receive your welcome and access to the Order.</p>
   <div class="ts" id="ts"></div>
   <div class="err" id="payErr"></div>
   <div class="actions"><button class="btn" id="payBtn">Complete your petition</button></div>
@@ -266,11 +289,11 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
   <p class="lead">Thank you, <span class="nm2"></span>. The Council will contact you personally by email with the next step of your admission.</p>
 </section>
 
-<!-- Exit · not ready -->
+<!-- Exit: not yet -->
 <section class="step center" data-step="exit">
   <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double.png?w=240" alt="">
   <h2>Thank you, <span class="nm2"></span>.</h2>
-  <p class="lead">The right moment matters. Walk with us in the meantime: follow the Order, pray with us, and return when you are ready to commit.</p>
+  <p class="lead">The right moment matters. We will keep you close and write to you from time to time. When you are ready, your petition will be waiting.</p>
   <a class="btn" href="https://www.instagram.com/" target="_blank" rel="noopener" id="igLink" style="text-decoration:none;display:inline-block">Follow the Order</a>
   <p style="margin-top:22px"><button class="btn ghost" type="button" id="reconsider">Change my answer</button></p>
 </section>
@@ -283,17 +306,16 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 if (window.top !== window.self) { try { window.top.location = window.self.location; } catch (e) { document.body.innerHTML = ""; } }
 /* ============ CONFIG ============ */
 const CONFIG = {
-  endpoint: "https://script.google.com/macros/s/AKfycbzyyBh4NWbICFewjF29RUF2QecVU7KTtjH8hNTwmkI9tLv4ULT9I0-gBXMRffDa4XF_JA/exec",          // Google Apps Script web app URL (https://script.google.com/macros/s/.../exec). Empty = preview mode
-  turnstileSiteKey: "",  // Cloudflare Turnstile site key (free). Empty = disabled
+  endpoint: "https://script.google.com/macros/s/AKfycbzyyBh4NWbICFewjF29RUF2QecVU7KTtjH8hNTwmkI9tLv4ULT9I0-gBXMRffDa4XF_JA/exec",
+  turnstileSiteKey: "",
   instagram: "https://www.instagram.com/"
 };
 /* ================================ */
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-const steps = $$(".step");
-const flow = ["intro","name","goals","obstacle","alone","why","faith","statement","invest","about","contact","review"];
-const qSteps = flow.filter(k => $(`[data-step="${k}"]`).hasAttribute("data-q")).length + 1;
+const flow = ["intro","name","email","goals","obstacle","scale","faith","statement","price","sponsor","about","review"];
+const qTotal = flow.filter(k => stepEl(k).hasAttribute("data-q")).length;
 const PREVIEW = !CONFIG.endpoint;
 const t0 = Date.now();
 const id = (crypto.randomUUID ? crypto.randomUUID() : ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15>>c/4).toString(16)));
@@ -307,20 +329,20 @@ if (PREVIEW) $("#demo").style.display = "block";
 const clean = (s, n) => String(s || "").replace(/[\u0000-\u001f\u007f<>]/g, " ").replace(/\s+/g, " ").trim().slice(0, n);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
 
-function stepEl(k){ return $(`[data-step="${k}"]`); }
+function stepEl(k){ return document.querySelector(`[data-step="${k}"]`); }
 function setErr(k, msg){ const e = $(".err", stepEl(k)); if (e) e.textContent = msg || ""; }
 
 function personalize(){
   const n = A.name ? A.name + ", " : "";
   $$(".nm").forEach(x => x.textContent = n);
-  $$(".nm2").forEach(x => x.textContent = A.name || "brother");
+  $$(".nm2").forEach(x => x.textContent = A.name || "friend");
 }
 
 function progress(){
   const i = flow.indexOf(cur);
-  const qi = flow.slice(0, i + 1).filter(k => stepEl(k).hasAttribute("data-q")).length;
-  $("#bar").style.width = (cur === "intro" ? 0 : cur === "review" ? 100 : Math.round(qi / qSteps * 100)) + "%";
-  $("#count").textContent = cur === "intro" || cur === "exit" || cur === "received" || cur === "statement" ? "" : cur === "review" ? "Review" : `${qi} / ${qSteps - 1}`;
+  const qi = i < 0 ? 0 : flow.slice(0, i + 1).filter(k => stepEl(k).hasAttribute("data-q")).length;
+  $("#bar").style.width = (cur === "intro" ? 0 : (cur === "review" || cur === "received") ? 100 : Math.round(qi / (qTotal + 1) * 100)) + "%";
+  $("#count").textContent = ["intro","exit","received","statement"].includes(cur) ? "" : cur === "review" ? "Review" : `${qi} / ${qTotal}`;
   $("#back").hidden = cur === "intro" || cur === "received" || history.length === 0;
 }
 
@@ -335,43 +357,47 @@ function show(k, back){
     to.classList.add("on");
     cur = k; personalize(); progress(); busy = false;
     if (k === "review") buildReview();
-    const f = $("input:not([type=checkbox]),textarea", to);
-    if (f && matchMedia("(pointer:fine)").matches) f.focus({ preventScroll: true });
+    const f = $("input:not([type=checkbox]):not([hidden]),textarea", to);
+    if (f && f.offsetParent && matchMedia("(pointer:fine)").matches) f.focus({ preventScroll: true });
     scrollTo({ top: 0, behavior: "smooth" });
   }, 260);
 }
 
 function validate(k){
-  const v = id => clean($(id).value, 2000);
   switch (k){
     case "name": A.name = clean($("#f_name").value, 40);
       if (!/^[\p{L}][\p{L}' .-]{0,39}$/u.test(A.name)) return "Please enter your first name.";
       break;
+    case "email":
+      A.email = clean($("#f_email").value, 120).toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(A.email)) return "Please enter a valid email.";
+      if (!$("#f_privacy").checked) return "Please accept to continue.";
+      A.privacy = "Yes"; break;
     case "goals": if (!A.goals.length) return "Choose at least one."; break;
-    case "obstacle": A.obstacle = v("#f_obstacle").slice(0,1200);
+    case "obstacle": A.obstacle = clean($("#f_obstacle").value, 1200);
       if (A.obstacle.length < 10) return "Please write at least a few words."; break;
-    case "alone": if (!A.alone) return "Choose one."; break;
-    case "why": A.why = v("#f_why").slice(0,1500);
-      if (A.why.length < 15) return "Please write at least a sentence."; break;
+    case "scale": if (!A.scale) return "Choose a number."; break;
     case "faith": if (!A.confession) return "Choose your confession.";
       if (!$("#f_commit").checked) return "Please confirm the declaration to continue.";
       A.commit = "Yes"; break;
-    case "invest": if (!A.invest) return "Choose one."; break;
+    case "price": if (!A.ready) return "Choose one."; break;
+    case "sponsor":
+      if (!A.sponsor) return "Choose one.";
+      A.sponsorName = A.sponsor === "Yes" ? clean($("#f_sponsor").value, 80) : "";
+      if (A.sponsor === "Yes" && A.sponsorName.length < 2) return "Please write the name of the member.";
+      break;
     case "about":
       A.age = parseInt($("#f_age").value, 10);
       A.country = clean($("#f_country").value, 60);
       A.job = clean($("#f_job").value, 80);
+      A.phone = clean($("#f_phone").value, 24);
+      A.source = $("#f_source").value;
       if (!(A.age >= 18 && A.age <= 99)) return "Admission is reserved to adults (18+).";
       if (A.country.length < 2) return "Please enter your country.";
       if (A.job.length < 2) return "Please enter your profession.";
+      if (!/^\+?[0-9 ()-]{7,22}$/.test(A.phone) || A.phone.replace(/\D/g,"").length < 7) return "Please enter a valid WhatsApp number with country code.";
+      if (!A.source) return "Please tell us how you heard about the Order.";
       break;
-    case "contact":
-      A.email = clean($("#f_email").value, 120).toLowerCase();
-      A.phone = clean($("#f_phone").value, 24);
-      if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(A.email)) return "Please enter a valid email.";
-      if (!/^\+?[0-9 ()-]{7,22}$/.test(A.phone) || A.phone.replace(/\D/g,"").length < 7) return "Please enter a valid number with country code.";
-      if (!$("#f_privacy").checked) return "Please accept to continue.";
-      A.privacy = "Yes"; break;
   }
   return "";
 }
@@ -383,7 +409,7 @@ async function send(stage, extra){
   try{
     const r = await fetch(CONFIG.endpoint, {
       method: "POST",
-      headers: { "Content-Type": "text/plain;charset=utf-8" }, // simple request, no CORS preflight
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(payload),
       redirect: "follow", credentials: "omit", cache: "no-store"
     });
@@ -395,9 +421,9 @@ function next(){
   if (busy) return;
   const err = validate(cur);
   setErr(cur, err);
-  if (err) { const s = stepEl(cur); s.animate([{transform:"translateX(0)"},{transform:"translateX(-6px)"},{transform:"translateX(6px)"},{transform:"translateX(0)"}],{duration:260}); return; }
-  if (stepEl(cur).hasAttribute("data-q")) send(cur); // fire and forget: partial answers are saved
-  if (cur === "invest" && A.invest === "Not ready"){ send("exit"); return show("exit"); }
+  if (err) { stepEl(cur).animate([{transform:"translateX(0)"},{transform:"translateX(-6px)"},{transform:"translateX(6px)"},{transform:"translateX(0)"}],{duration:260}); return; }
+  if (stepEl(cur).hasAttribute("data-q")) send(cur);
+  if (cur === "price" && A.ready === "Not yet"){ send("exit"); return show("exit"); }
   const i = flow.indexOf(cur);
   if (i < flow.length - 1) show(flow[i + 1]);
 }
@@ -411,7 +437,11 @@ $$("[data-single],[data-multi]").forEach(group => {
       A[key] = $$(".opt.sel", group).map(x => x.dataset.v);
     } else {
       $$(".opt", group).forEach(x => x.classList.remove("sel"));
-      b.classList.add("sel"); A[key] = b.dataset.v;
+      b.classList.add("sel"); A[key] = key === "scale" ? parseInt(b.dataset.v, 10) : b.dataset.v;
+      if (key === "sponsor"){
+        const f = $("#sponsorField"); f.hidden = A.sponsor !== "Yes";
+        if (!f.hidden) $("#f_sponsor").focus({ preventScroll: true });
+      }
       if (!group.hasAttribute("data-stay")) setTimeout(next, 320);
     }
     setErr(cur, "");
@@ -421,9 +451,10 @@ $$("[data-single],[data-multi]").forEach(group => {
 /* ---------- Review ---------- */
 function buildReview(){
   const rows = [
-    ["Name", A.name], ["Path", (A.goals || []).join(", ")], ["Confession", A.confession],
-    ["Commitment", A.invest && A.invest.replace(/EUR /g, "€").replace(" to ", " to €") + " / month"],
-    ["Age", A.age], ["Country", A.country], ["Profession", A.job], ["Email", A.email], ["WhatsApp", A.phone]
+    ["Name", A.name], ["Email", A.email], ["Path", (A.goals || []).join(", ")],
+    ["Commitment", A.scale ? A.scale + " / 10" : ""], ["Confession", A.confession],
+    ["Introduced by", A.sponsor === "Yes" ? A.sponsorName : "No one"],
+    ["Age", A.age], ["Country", A.country], ["Profession", A.job], ["WhatsApp", A.phone]
   ];
   $("#sum").innerHTML = rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v ?? "")}</dd>`).join("");
   if (CONFIG.turnstileSiteKey && !window.turnstile){
@@ -440,16 +471,14 @@ window.__tsReady = () => {
 $("#payBtn").addEventListener("click", async () => {
   const btn = $("#payBtn"), e = $("#payErr");
   e.textContent = "";
-  if ($("#hp_site").value) return; // silent: bot
+  if ($("#hp_site").value) return;
   if (Date.now() - t0 < 45000) { e.textContent = "Please take a moment to review your answers."; return; }
   if (CONFIG.turnstileSiteKey && !tsToken) { e.textContent = "Please complete the security check above."; return; }
   btn.disabled = true; btn.textContent = "Securing your petition...";
   const r = await send("submit", { ts: tsToken });
   if (r.preview){ btn.textContent = "Preview: Stripe would open here"; return; }
   if (r.ok && r.pending){ show("received"); return; }
-  if (r.ok && r.pay && /^https:\/\/(buy|checkout)\.stripe\.com\//.test(r.pay)){
-    location.assign(r.pay); return;
-  }
+  if (r.ok && r.pay && /^https:\/\/(buy|checkout)\.stripe\.com\//.test(r.pay)){ location.assign(r.pay); return; }
   btn.disabled = false; btn.textContent = "Complete your petition";
   e.textContent = r.error === "rate" ? "Too many attempts. Please try again later."
                : r.error === "network" ? "Connection problem. Please try again."
@@ -460,17 +489,22 @@ $("#payBtn").addEventListener("click", async () => {
 /* ---------- Navigation ---------- */
 $$("[data-next]").forEach(b => b.addEventListener("click", next));
 $("#back").addEventListener("click", () => { if (history.length) show(history.pop(), true); });
-$("#reconsider").addEventListener("click", () => { history = history.filter(k => k !== "invest"); show("invest", true); });
+$("#reconsider").addEventListener("click", () => { history = history.filter(k => k !== "price"); show("price", true); });
 
 addEventListener("keydown", ev => {
   const s = stepEl(cur);
+  const typing = /INPUT|TEXTAREA|SELECT/.test(ev.target.tagName);
   if (ev.key === "Enter"){
     if (ev.target.tagName === "TEXTAREA" && !(ev.ctrlKey || ev.metaKey)) return;
     if (ev.target.tagName === "A" || ev.target.id === "payBtn") return;
-    if (cur === "review" || cur === "exit" || cur === "received") return;
+    if (["review","exit","received"].includes(cur)) return;
     ev.preventDefault(); next(); return;
   }
-  if (/^[a-e]$/i.test(ev.key) && !/INPUT|TEXTAREA|SELECT/.test(ev.target.tagName)){
+  if (typing) return;
+  if (cur === "scale" && /^[0-9]$/.test(ev.key)){
+    const o = $(`.opt[data-v="${ev.key === "0" ? 10 : ev.key}"]`, s); if (o) o.click(); return;
+  }
+  if (/^[a-e]$/i.test(ev.key) && !$("[data-noletters]", s)){
     const o = $$(".opt", s)[ev.key.toLowerCase().charCodeAt(0) - 97];
     if (o) o.click();
   }
