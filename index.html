@@ -97,7 +97,7 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
   .crest{width:76px}
 }
 @media (prefers-reduced-motion:reduce){.step.on,.step.out{animation:none}.bar i{transition:none}}
-.how{list-style:none;display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin:-8px auto 32px;max-width:720px;font-size:13px;color:var(--mute)}
+.how{list-style:none;display:flex;flex-direction:column;align-items:center;gap:8px;margin:-8px auto 32px;max-width:720px;font-size:13px;color:var(--mute)}
 .how li{display:flex;align-items:center;gap:8px}
 .how b{width:22px;height:22px;border:1px solid var(--gold-d);border-radius:50%;display:grid;place-items:center;font-size:11px;color:var(--gold);font-weight:500}
 .scale{display:grid;grid-template-columns:repeat(10,1fr);gap:8px}
@@ -108,6 +108,10 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 .price small{font-size:15px;color:var(--mute)}
 .next{font-size:14px;color:var(--mute);margin:-6px 0 6px}
 .next b{color:var(--ink);font-weight:500}
+.perks{list-style:none;display:grid;gap:14px;margin:6px 0 4px}
+.perks li{border:1px solid var(--line);border-left:2px solid var(--gold);padding:16px 18px;border-radius:4px;background:rgba(201,169,106,.03)}
+.perks b{display:block;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;color:var(--gold);margin-bottom:2px}
+.perks span{color:var(--mute);font-size:15px}
 .reveal{margin-top:22px}
 @media (max-width:560px){.scale{grid-template-columns:repeat(5,1fr)}.how{flex-direction:column;align-items:center;gap:10px}}
 </style>
@@ -126,23 +130,23 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 <!-- Intro -->
 <section class="step on center" data-step="intro">
   <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double.png?w=240" alt="Order of the Knights of the Holy Grail">
-  <div class="eyebrow">Order of the Knights of the Holy Grail</div>
-  <h1>Petition for <em>Admission</em></h1>
-  <p class="lead">The Knight's Path: weekly formation and daily accountability in body, faith, work and mind, within a true brotherhood.</p>
+  <div class="eyebrow">Admissions are limited</div>
+  <h1>The Trial of <em>Admission</em></h1>
+  <p class="lead">This is not a sign-up form. It is the first trial of the Knight's Path. Every petition is examined personally by the Council, and not every petition is accepted.</p>
   <ol class="how">
-    <li><b>1</b>Submit your petition</li>
-    <li><b>2</b>The Council reviews it personally</li>
-    <li><b>3</b>If admitted, you join the Order</li>
+    <li><b>I</b>Answer with truth</li>
+    <li><b>II</b>The Council examines your petition</li>
+    <li><b>III</b>If found worthy, you are admitted</li>
   </ol>
-  <button class="btn" data-next>Begin your petition</button>
-  <p class="hint" style="margin-top:18px">About 3 minutes &middot; Your answers are confidential</p>
+  <button class="btn" data-next>Begin the trial</button>
+  <p class="hint" style="margin-top:18px">About 3 minutes &middot; Strictly confidential</p>
 </section>
 
 <!-- 01 Name -->
 <section class="step" data-step="name" data-q>
-  <div class="eyebrow"><b>01</b>Your name</div>
+  <div class="eyebrow"><b>I</b>Your name</div>
   <h2>What is your first name?</h2>
-  <p class="lead">So that the Council may address you properly.</p>
+  <p class="lead">The Council reads every petition by name.</p>
   <input type="text" id="f_name" maxlength="40" autocomplete="given-name" placeholder="Type your answer here">
   <div class="err"></div>
   <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd">press <kbd>Enter &crarr;</kbd></span></div>
@@ -150,9 +154,9 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 
 <!-- 02 Email -->
 <section class="step" data-step="email" data-q>
-  <div class="eyebrow"><b>02</b>Contact</div>
+  <div class="eyebrow"><b>II</b>Contact</div>
   <h2><span class="nm"></span>where should the Council send its <em>decision</em>?</h2>
-  <p class="lead">Your email is used only for your petition.</p>
+  <p class="lead">The verdict of the Council is sent privately. Your email is used for nothing else.</p>
   <input type="email" id="f_email" maxlength="120" autocomplete="email" placeholder="name@example.com">
   <label class="check"><input type="checkbox" id="f_privacy"><span>I agree that the Order may store and use my answers to evaluate my petition, as described in the <a href="https://orderoftheholygrail.org/privacy-policy/" target="_blank" rel="noopener">privacy policy</a>.</span></label>
   <div class="err"></div>
@@ -161,7 +165,7 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 
 <!-- 03 Goals -->
 <section class="step" data-step="goals" data-q>
-  <div class="eyebrow"><b>03</b>The Knight's Path</div>
+  <div class="eyebrow"><b>III</b>The Knight's Path</div>
   <h2>Who do you want to <em>become</em> in the next 12 months?</h2>
   <p class="lead">Choose all that apply.</p>
   <div class="opts" data-multi="goals">
@@ -177,7 +181,7 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 
 <!-- 04 Obstacle -->
 <section class="step" data-step="obstacle" data-q>
-  <div class="eyebrow"><b>04</b>The obstacle</div>
+  <div class="eyebrow"><b>IV</b>The obstacle</div>
   <h2>What is holding you back <em>today</em>?</h2>
   <p class="lead">Be specific. No one becomes better by hiding from the truth.</p>
   <textarea id="f_obstacle" maxlength="1200" placeholder="Write freely..."></textarea>
@@ -187,9 +191,9 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 
 <!-- 05 Commitment scale -->
 <section class="step" data-step="scale" data-q>
-  <div class="eyebrow"><b>05</b>Commitment</div>
+  <div class="eyebrow"><b>V</b>Commitment</div>
   <h2>From 1 to 10, how committed are you to changing this in the next <em>90 days</em>?</h2>
-  <p class="lead">1 = just curious &middot; 10 = nothing will stop me</p>
+  <p class="lead">Be honest. The Council values truth over ambition. 1 = just curious &middot; 10 = nothing will stop me</p>
   <div class="scale" data-single="scale" data-noletters>
     <button type="button" class="opt" data-v="1">1</button><button type="button" class="opt" data-v="2">2</button><button type="button" class="opt" data-v="3">3</button><button type="button" class="opt" data-v="4">4</button><button type="button" class="opt" data-v="5">5</button><button type="button" class="opt" data-v="6">6</button><button type="button" class="opt" data-v="7">7</button><button type="button" class="opt" data-v="8">8</button><button type="button" class="opt" data-v="9">9</button><button type="button" class="opt" data-v="10">10</button>
   </div>
@@ -198,7 +202,7 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 
 <!-- 06 Faith -->
 <section class="step" data-step="faith" data-q>
-  <div class="eyebrow"><b>06</b>Faith</div>
+  <div class="eyebrow"><b>VI</b>Faith</div>
   <h2>What is your Christian <em>confession</em>?</h2>
   <p class="lead">&nbsp;</p>
   <div class="opts" data-single="confession" data-stay>
@@ -219,14 +223,28 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
   <p class="quote">The Order is not for everyone.<br>It asks for <em>discipline</em>, <em>presence</em> and <em>commitment</em>.</p>
   <div class="rule"></div>
   <p class="lead">Those who are admitted are expected to walk the Path with seriousness, alongside the other members of the Order.</p>
-  <button class="btn" data-next>I understand</button>
+  <button class="btn" data-next>I accept</button>
+</section>
+
+<!-- What awaits -->
+<section class="step" data-step="path">
+  <div class="eyebrow">The Knight's Path</div>
+  <h2>What awaits those who are <em>admitted</em></h2>
+  <p class="lead">A rule of life for the modern knight: the victory over oneself, lived together.</p>
+  <ul class="perks">
+    <li><b>Weekly formation</b><span>A live gathering of the Order every week, to be formed in faith, discipline and character.</span></li>
+    <li><b>Daily accountability</b><span>A short daily check-in. No one walks alone, and no one is allowed to quietly give up.</span></li>
+    <li><b>The four pillars</b><span>Your own goals in body, faith, work and mind, measured and pursued with method.</span></li>
+    <li><b>A true brotherhood</b><span>Admission to the circle of the Order: people of faith who want more from their lives, and expect more from you.</span></li>
+  </ul>
+  <div class="actions"><button class="btn" data-next>Continue</button></div>
 </section>
 
 <!-- 07 Price -->
 <section class="step" data-step="price" data-q>
-  <div class="eyebrow"><b>07</b>Membership</div>
-  <h2>Membership is <em>&euro;29 per month</em>. Are you ready to commit?</h2>
-  <p class="lead">It includes the Knight's Path: weekly formation, daily accountability and life within the Order. You can leave at any time.</p>
+  <div class="eyebrow"><b>VII</b>Membership</div>
+  <h2>The contribution is <em>&euro;29 per month</em>. Are you ready to commit?</h2>
+  <p class="lead">It is paid when you seal your petition, and refunded in full if you are not admitted. Once admitted, you may leave at any time.</p>
   <div class="opts" data-single="ready">
     <button type="button" class="opt" data-v="Yes"><span class="k">A</span><span>Yes, I am ready</span></button>
     <button type="button" class="opt" data-v="Not yet"><span class="k">B</span><span>Not yet</span></button>
@@ -236,9 +254,9 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 
 <!-- 08 Sponsor -->
 <section class="step" data-step="sponsor" data-q>
-  <div class="eyebrow"><b>08</b>Introduction</div>
+  <div class="eyebrow"><b>VIII</b>Introduction</div>
   <h2>Is a member of the Order <em>introducing</em> you?</h2>
-  <p class="lead">Candidates presented by a member are reviewed with priority.</p>
+  <p class="lead">Petitions presented by a member of the Order are examined with priority.</p>
   <div class="opts" data-single="sponsor" data-stay>
     <button type="button" class="opt" data-v="Yes"><span class="k">A</span><span>Yes</span></button>
     <button type="button" class="opt" data-v="No"><span class="k">B</span><span>No</span></button>
@@ -250,7 +268,7 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 
 <!-- 09 About -->
 <section class="step" data-step="about" data-q>
-  <div class="eyebrow"><b>09</b>About you</div>
+  <div class="eyebrow"><b>IX</b>About you</div>
   <h2>Tell us a little <em>about yourself</em>.</h2>
   <p class="lead">&nbsp;</p>
   <div class="field"><label for="f_age">Age</label><input type="number" id="f_age" min="18" max="99" inputmode="numeric" placeholder="e.g. 34"></div>
@@ -266,18 +284,18 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 <!-- Review & pay -->
 <section class="step" data-step="review">
   <div class="eyebrow">Final step</div>
-  <h2><span class="nm"></span>your petition is <em>ready</em>.</h2>
-  <p class="lead">Review your details, then complete your petition with your first monthly contribution.</p>
+  <h2><span class="nm"></span>your petition is ready to be <em>sealed</em>.</h2>
+  <p class="lead">Once sealed, it is placed before the Council. Admission is not guaranteed.</p>
   <div class="card"><dl class="sum" id="sum"></dl></div>
   <div class="price"><span>Membership</span><strong>&euro;29 <small>/ month</small></strong></div>
   <div class="guar">
     <svg width="30" height="34" viewBox="0 0 30 34" fill="none"><path d="M15 1 2 6v10c0 8 6 14 13 17 7-3 13-9 13-17V6L15 1Z" stroke="#c9a96a" stroke-width="1.5"/><path d="m9.5 17 4 4 7-8" stroke="#c9a96a" stroke-width="1.8"/></svg>
     <div><strong>Full refund guarantee</strong>If you are not admitted to the Order, you receive a full refund of your contribution.</div>
   </div>
-  <p class="next"><b>What happens next:</b> the Council reviews your petition personally and replies by email. If admitted, you receive your welcome and access to the Order.</p>
+  <p class="next"><b>What happens next:</b> the Council examines your petition personally and sends its verdict by email. If admitted, you receive your welcome into the Order and your place on the Knight's Path.</p>
   <div class="ts" id="ts"></div>
   <div class="err" id="payErr"></div>
-  <div class="actions"><button class="btn" id="payBtn">Complete your petition</button></div>
+  <div class="actions"><button class="btn" id="payBtn">Seal my petition</button></div>
   <p class="secure"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><rect x="1" y="7" width="12" height="8" rx="1.5" stroke="#a59a88"/><path d="M4 7V5a3 3 0 0 1 6 0v2" stroke="#a59a88"/></svg>Secure payment processed by Stripe. Your card details never reach the Order.</p>
   <div class="demo" id="demo">Preview mode: no data is sent and no payment is requested.</div>
 </section>
@@ -285,8 +303,8 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 <!-- Received (no payment link configured yet) -->
 <section class="step center" data-step="received">
   <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double.png?w=240" alt="">
-  <h2>Your petition has been <em>received</em>.</h2>
-  <p class="lead">Thank you, <span class="nm2"></span>. The Council will contact you personally by email with the next step of your admission.</p>
+  <h2>Your petition has been <em>sealed</em>.</h2>
+  <p class="lead"><span class="nm2"></span>, your petition now lies before the Council. You will receive its verdict personally, by email.</p>
 </section>
 
 <!-- Exit: not yet -->
@@ -314,7 +332,7 @@ const CONFIG = {
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-const flow = ["intro","name","email","goals","obstacle","scale","faith","statement","price","sponsor","about","review"];
+const flow = ["intro","name","email","goals","obstacle","scale","faith","statement","path","price","sponsor","about","review"];
 const qTotal = flow.filter(k => stepEl(k).hasAttribute("data-q")).length;
 const PREVIEW = !CONFIG.endpoint;
 const t0 = Date.now();
@@ -329,6 +347,7 @@ if (PREVIEW) $("#demo").style.display = "block";
 const clean = (s, n) => String(s || "").replace(/[\u0000-\u001f\u007f<>]/g, " ").replace(/\s+/g, " ").trim().slice(0, n);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
 
+function roman(n){ return ["","I","II","III","IV","V","VI","VII","VIII","IX","X"][n] || n; }
 function stepEl(k){ return document.querySelector(`[data-step="${k}"]`); }
 function setErr(k, msg){ const e = $(".err", stepEl(k)); if (e) e.textContent = msg || ""; }
 
@@ -342,7 +361,7 @@ function progress(){
   const i = flow.indexOf(cur);
   const qi = i < 0 ? 0 : flow.slice(0, i + 1).filter(k => stepEl(k).hasAttribute("data-q")).length;
   $("#bar").style.width = (cur === "intro" ? 0 : (cur === "review" || cur === "received") ? 100 : Math.round(qi / (qTotal + 1) * 100)) + "%";
-  $("#count").textContent = ["intro","exit","received","statement"].includes(cur) ? "" : cur === "review" ? "Review" : `${qi} / ${qTotal}`;
+  $("#count").textContent = ["intro","exit","received","statement","path"].includes(cur) ? "" : cur === "review" ? "Seal" : `Trial ${roman(qi)} of ${roman(qTotal)}`;
   $("#back").hidden = cur === "intro" || cur === "received" || history.length === 0;
 }
 
@@ -474,12 +493,12 @@ $("#payBtn").addEventListener("click", async () => {
   if ($("#hp_site").value) return;
   if (Date.now() - t0 < 45000) { e.textContent = "Please take a moment to review your answers."; return; }
   if (CONFIG.turnstileSiteKey && !tsToken) { e.textContent = "Please complete the security check above."; return; }
-  btn.disabled = true; btn.textContent = "Securing your petition...";
+  btn.disabled = true; btn.textContent = "Sealing your petition...";
   const r = await send("submit", { ts: tsToken });
   if (r.preview){ btn.textContent = "Preview: Stripe would open here"; return; }
   if (r.ok && r.pending){ show("received"); return; }
   if (r.ok && r.pay && /^https:\/\/(buy|checkout)\.stripe\.com\//.test(r.pay)){ location.assign(r.pay); return; }
-  btn.disabled = false; btn.textContent = "Complete your petition";
+  btn.disabled = false; btn.textContent = "Seal my petition";
   e.textContent = r.error === "rate" ? "Too many attempts. Please try again later."
                : r.error === "network" ? "Connection problem. Please try again."
                : "We could not verify your petition. Please refresh and try again.";
