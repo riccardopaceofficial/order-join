@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://orderoftheholygrail.org https://holygrailknights.wordpress.com https://*.wp.com; connect-src https://script.google.com https://script.googleusercontent.com; frame-src https://challenges.cloudflare.com; form-action 'none'; base-uri 'none'; object-src 'none'">
+<title>Petition for Admission · Order of the Holy Grail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0909; --bg2:#140e0e; --gold:#c9a96a; --gold-d:#8c7444; --ink:#efe6d6; --mute:#a59a88;
+  --red:#81050e; --line:rgba(201,169,106,.28); --err:#e0796f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:radial-gradient(1200px 700px at 50% -10%,#2a1010 0%,var(--bg) 60%) fixed,var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+header{position:fixed;inset:0 0 auto 0;z-index:5;padding:18px 24px 10px;background:linear-gradient(180deg,var(--bg) 70%,rgba(12,9,9,0))}
+.bar{height:2px;background:rgba(201,169,106,.14);border-radius:2px;overflow:hidden;max-width:720px;margin:0 auto}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold-d),var(--gold));transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.top{display:flex;justify-content:space-between;align-items:center;max-width:720px;margin:14px auto 0;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.top button{background:none;border:0;color:var(--mute);font:inherit;letter-spacing:inherit;cursor:pointer;padding:6px 0}
+.top button:hover{color:var(--gold)}
+.top button[hidden]{display:block;visibility:hidden}
+main{min-height:calc(100% - 40px);display:flex;align-items:center;justify-content:center;padding:110px 24px 60px}
+.step{width:100%;max-width:640px;display:none}
+.step.on{display:block;animation:in .55s cubic-bezier(.2,.7,.2,1)}
+.step.out{display:block;animation:out .28s ease forwards}
+@keyframes in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes out{to{opacity:0;transform:translateY(-14px)}}
+.crest{display:block;width:92px;height:auto;margin:0 auto 28px;filter:drop-shadow(0 10px 30px rgba(129,5,14,.55))}
+.eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.eyebrow b{font-weight:500;color:var(--mute);margin-right:10px}
+h1,h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;line-height:1.15;color:var(--ink)}
+h1{font-size:clamp(38px,6vw,58px);text-align:center}
+h2{font-size:clamp(28px,4.4vw,40px);margin-bottom:10px}
+h2 em,h1 em{color:var(--gold);font-style:italic}
+.lead{color:var(--mute);font-size:17px;margin-bottom:30px}
+.center{text-align:center}
+.center .lead{max-width:520px;margin:18px auto 34px}
+.rule{width:60px;height:1px;background:var(--gold-d);margin:26px auto}
+input[type=text],input[type=email],input[type=tel],input[type=number],textarea,select{
+  width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ink);
+  font:400 22px/1.4 Inter,sans-serif;padding:12px 2px;outline:none;transition:border-color .25s;border-radius:0}
+textarea{resize:none;min-height:120px;font-size:19px}
+select{appearance:none;font-size:20px;cursor:pointer}
+select option{background:var(--bg2);color:var(--ink)}
+input:focus,textarea:focus,select:focus{border-bottom-color:var(--gold)}
+::placeholder{color:#5f574c}
+.field{margin-bottom:26px}
+.field label{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:2px}
+.opts{display:grid;gap:12px}
+.opt{display:flex;align-items:center;gap:16px;width:100%;text-align:left;background:rgba(255,255,255,.015);border:1px solid var(--line);color:var(--ink);padding:16px 18px;border-radius:4px;cursor:pointer;font:inherit;font-size:17px;transition:border-color .2s,background .2s,transform .15s}
+.opt:hover{border-color:var(--gold-d);background:rgba(201,169,106,.05)}
+.opt:active{transform:scale(.995)}
+.opt .k{flex:none;width:28px;height:28px;border:1px solid var(--gold-d);border-radius:3px;display:grid;place-items:center;font-size:12px;color:var(--gold);transition:all .2s}
+.opt small{display:block;color:var(--mute);font-size:14px;margin-top:2px}
+.opt.sel{border-color:var(--gold);background:rgba(201,169,106,.09)}
+.opt.sel .k{background:var(--gold);color:var(--bg)}
+.check{display:flex;gap:14px;align-items:flex-start;margin-top:22px;cursor:pointer;color:var(--ink);font-size:16px}
+.check input{appearance:none;flex:none;width:22px;height:22px;border:1px solid var(--gold-d);border-radius:3px;margin-top:2px;cursor:pointer;display:grid;place-items:center}
+.check input:checked{background:var(--gold);border-color:var(--gold)}
+.check input:checked::after{content:"";width:6px;height:11px;border:solid var(--bg);border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.check a{color:var(--gold)}
+.actions{display:flex;align-items:center;gap:18px;margin-top:34px;flex-wrap:wrap}
+.btn{appearance:none;border:1px solid var(--gold);background:linear-gradient(180deg,#d6b778,#b8955a);color:#1a1208;font:600 14px Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;padding:17px 30px;border-radius:3px;cursor:pointer;transition:filter .2s,transform .15s,opacity .2s;box-shadow:0 10px 30px -12px rgba(201,169,106,.6)}
+.btn:hover{filter:brightness(1.06)}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{background:transparent;color:var(--gold);box-shadow:none}
+.hint{font-size:13px;color:var(--mute)}
+.hint kbd{font:inherit;border:1px solid var(--line);border-radius:3px;padding:1px 6px;margin:0 2px}
+.err{color:var(--err);font-size:14px;min-height:22px;margin-top:10px}
+.quote{font-family:"Cormorant Garamond",serif;font-size:clamp(30px,5vw,46px);line-height:1.2;text-align:center}
+.quote em{color:var(--gold)}
+.card{border:1px solid var(--gold-d);background:linear-gradient(180deg,rgba(201,169,106,.05),rgba(0,0,0,0));border-radius:6px;padding:26px 24px;margin:8px 0 22px}
+.sum{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:15px}
+.sum dt{color:var(--mute)}
+.sum dd{color:var(--ink);word-break:break-word}
+.guar{display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line);border-left:3px solid var(--gold);padding:18px 20px;border-radius:4px;margin-bottom:22px;background:rgba(201,169,106,.04)}
+.guar svg{flex:none;margin-top:3px}
+.guar strong{display:block;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;color:var(--gold);margin-bottom:2px}
+.secure{display:flex;gap:10px;align-items:center;color:var(--mute);font-size:13px;margin-top:16px}
+.ts{margin:6px 0 4px;min-height:0}
+.demo{border:1px dashed var(--gold-d);color:var(--gold);padding:10px 14px;border-radius:4px;font-size:13px;margin-top:16px;display:none}
+footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5f574c;pointer-events:none}
+@media (max-width:560px){
+  main{padding:96px 18px 70px;align-items:flex-start}
+  input[type=text],input[type=email],input[type=tel],input[type=number]{font-size:20px}
+  .opt{padding:14px;font-size:16px}
+  .actions{gap:14px}.btn{width:100%}
+  .hint.kbd{display:none}
+  .crest{width:76px}
+}
+@media (prefers-reduced-motion:reduce){.step.on,.step.out{animation:none}.bar i{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar"><i id="bar"></i></div>
+  <div class="top"><button id="back" type="button" hidden>&larr; Back</button><span id="count"></span></div>
+</header>
+
+<main id="app">
+<!-- Honeypot: invisible to people, bots fill it -->
+<div class="hp" aria-hidden="true"><label>Website<input type="text" id="hp_site" tabindex="-1" autocomplete="off"></label></div>
+
+<!-- 0 · Intro -->
+<section class="step on center" data-step="intro">
+  <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double.png?w=240" alt="Order of the Knights of the Holy Grail">
+  <div class="eyebrow">Order of the Knights of the Holy Grail</div>
+  <h1>Petition for <em>Admission</em></h1>
+  <p class="lead">The Order admits a limited number of men each year. Answer with honesty: every petition is read personally by the Council.</p>
+  <button class="btn" data-next>Begin your petition</button>
+  <p class="hint" style="margin-top:18px">About 3 minutes &middot; Your answers are confidential</p>
+</section>
+
+<!-- 1 · Name -->
+<section class="step" data-step="name" data-q>
+  <div class="eyebrow"><b>01</b>Your name</div>
+  <h2>What is your first name?</h2>
+  <p class="lead">So that the Council may address you properly.</p>
+  <input type="text" id="f_name" maxlength="40" autocomplete="given-name" placeholder="Type your answer here">
+  <div class="err"></div>
+  <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd">press <kbd>Enter &crarr;</kbd></span></div>
+</section>
+
+<!-- 2 · Goals -->
+<section class="step" data-step="goals" data-q>
+  <div class="eyebrow"><b>02</b>The Knight's Path</div>
+  <h2><span class="nm"></span>who do you want to <em>become</em> in the next 12 months?</h2>
+  <p class="lead">Choose all that apply.</p>
+  <div class="opts" data-multi="goals">
+    <button type="button" class="opt" data-v="Body"><span class="k">A</span><span>Stronger in body and discipline<small>Training, health, self-mastery</small></span></button>
+    <button type="button" class="opt" data-v="Spirit"><span class="k">B</span><span>Deeper in faith and prayer<small>A real, daily life with Christ</small></span></button>
+    <button type="button" class="opt" data-v="Work"><span class="k">C</span><span>Greater in work and enterprise<small>Career, business, responsibility</small></span></button>
+    <button type="button" class="opt" data-v="Mind"><span class="k">D</span><span>Clearer in mind and judgment<small>Study, focus, sound decisions</small></span></button>
+  </div>
+  <div class="err"></div>
+  <div class="actions"><button class="btn" data-next>Continue</button></div>
+</section>
+
+<!-- 3 · Obstacle -->
+<section class="step" data-step="obstacle" data-q>
+  <div class="eyebrow"><b>03</b>The obstacle</div>
+  <h2>What is holding you back <em>today</em>?</h2>
+  <p class="lead">Be specific. No one becomes better by hiding from the truth.</p>
+  <textarea id="f_obstacle" maxlength="1200" placeholder="Write freely..."></textarea>
+  <div class="err"></div>
+  <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd"><kbd>Ctrl</kbd>+<kbd>Enter &crarr;</kbd></span></div>
+</section>
+
+<!-- 4 · Tried alone -->
+<section class="step" data-step="alone" data-q>
+  <div class="eyebrow"><b>04</b>Experience</div>
+  <h2>Have you tried to change this <em>alone</em> before?</h2>
+  <p class="lead">&nbsp;</p>
+  <div class="opts" data-single="alone">
+    <button type="button" class="opt" data-v="Yes, more than once"><span class="k">A</span><span>Yes, more than once</span></button>
+    <button type="button" class="opt" data-v="Yes, once"><span class="k">B</span><span>Yes, once</span></button>
+    <button type="button" class="opt" data-v="No, never seriously"><span class="k">C</span><span>No, never seriously</span></button>
+  </div>
+  <div class="err"></div>
+</section>
+
+<!-- 5 · Why -->
+<section class="step" data-step="why" data-q>
+  <div class="eyebrow"><b>05</b>Your reason</div>
+  <h2>Why the Order, and why <em>now</em>?</h2>
+  <p class="lead">This is the answer the Council reads most carefully.</p>
+  <textarea id="f_why" maxlength="1500" placeholder="Write freely..."></textarea>
+  <div class="err"></div>
+  <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd"><kbd>Ctrl</kbd>+<kbd>Enter &crarr;</kbd></span></div>
+</section>
+
+<!-- 6 · Faith -->
+<section class="step" data-step="faith" data-q>
+  <div class="eyebrow"><b>06</b>Faith</div>
+  <h2>What is your Christian <em>confession</em>?</h2>
+  <p class="lead">&nbsp;</p>
+  <div class="opts" data-single="confession" data-stay>
+    <button type="button" class="opt" data-v="Catholic"><span class="k">A</span><span>Catholic</span></button>
+    <button type="button" class="opt" data-v="Orthodox"><span class="k">B</span><span>Orthodox</span></button>
+    <button type="button" class="opt" data-v="Protestant / Evangelical"><span class="k">C</span><span>Protestant / Evangelical</span></button>
+    <button type="button" class="opt" data-v="Anglican"><span class="k">D</span><span>Anglican</span></button>
+    <button type="button" class="opt" data-v="Other Christian"><span class="k">E</span><span>Other Christian</span></button>
+  </div>
+  <label class="check"><input type="checkbox" id="f_commit"><span>I am ready to commit myself to the Kingdom of Christ.</span></label>
+  <div class="err"></div>
+  <div class="actions"><button class="btn" data-next>Continue</button></div>
+</section>
+
+<!-- 7 · Statement -->
+<section class="step center" data-step="statement">
+  <div class="rule"></div>
+  <p class="quote">The Order is not for everyone.<br>It asks for <em>discipline</em>, <em>presence</em> and <em>commitment</em>.</p>
+  <div class="rule"></div>
+  <p class="lead">Those who are admitted are expected to walk the Path with seriousness, alongside their brothers.</p>
+  <button class="btn" data-next>I understand</button>
+</section>
+
+<!-- 8 · Investment -->
+<section class="step" data-step="invest" data-q>
+  <div class="eyebrow"><b>07</b>Commitment</div>
+  <h2>How much are you prepared to invest <em>each month</em> in your formation?</h2>
+  <p class="lead">Membership includes the Knight's Path, mentorship and life within the Order.</p>
+  <div class="opts" data-single="invest">
+    <button type="button" class="opt" data-v="Up to EUR 50"><span class="k">A</span><span>Up to &euro;50 per month</span></button>
+    <button type="button" class="opt" data-v="EUR 50 to 150"><span class="k">B</span><span>&euro;50 to &euro;150 per month</span></button>
+    <button type="button" class="opt" data-v="EUR 150 to 300"><span class="k">C</span><span>&euro;150 to &euro;300 per month</span></button>
+    <button type="button" class="opt" data-v="Over EUR 300"><span class="k">D</span><span>More than &euro;300 per month</span></button>
+    <button type="button" class="opt" data-v="Not ready"><span class="k">E</span><span>I am not ready to invest yet</span></button>
+  </div>
+  <div class="err"></div>
+</section>
+
+<!-- 9 · About -->
+<section class="step" data-step="about" data-q>
+  <div class="eyebrow"><b>08</b>About you</div>
+  <h2>Tell us a little <em>about yourself</em>.</h2>
+  <p class="lead">&nbsp;</p>
+  <div class="field"><label for="f_age">Age</label><input type="number" id="f_age" min="18" max="99" inputmode="numeric" placeholder="e.g. 34"></div>
+  <div class="field"><label for="f_country">Country</label><input type="text" id="f_country" maxlength="60" autocomplete="country-name" placeholder="e.g. Italy"></div>
+  <div class="field"><label for="f_job">Profession</label><input type="text" id="f_job" maxlength="80" autocomplete="organization-title" placeholder="e.g. Entrepreneur"></div>
+  <div class="err"></div>
+  <div class="actions"><button class="btn" data-next>Continue</button></div>
+</section>
+
+<!-- 10 · Contact -->
+<section class="step" data-step="contact" data-q>
+  <div class="eyebrow"><b>09</b>Contact</div>
+  <h2>Where can the Council <em>reach you</em>?</h2>
+  <p class="lead">You will receive the outcome of your petition here.</p>
+  <div class="field"><label for="f_email">Email</label><input type="email" id="f_email" maxlength="120" autocomplete="email" placeholder="name@example.com"></div>
+  <div class="field"><label for="f_phone">WhatsApp (with country code)</label><input type="tel" id="f_phone" maxlength="24" autocomplete="tel" placeholder="+39 333 123 4567"></div>
+  <label class="check"><input type="checkbox" id="f_privacy"><span>I agree that the Order may store and use my answers to evaluate my petition, as described in the <a href="https://orderoftheholygrail.org/privacy-policy/" target="_blank" rel="noopener">privacy policy</a>.</span></label>
+  <div class="err"></div>
+  <div class="actions"><button class="btn" data-next>Continue</button></div>
+</section>
+
+<!-- 11 · Review & pay -->
+<section class="step" data-step="review">
+  <div class="eyebrow">Final step</div>
+  <h2><span class="nm"></span>your petition is <em>ready</em>.</h2>
+  <p class="lead">Review your details, then complete your petition with the admission contribution.</p>
+  <div class="card"><dl class="sum" id="sum"></dl></div>
+  <div class="guar">
+    <svg width="30" height="34" viewBox="0 0 30 34" fill="none"><path d="M15 1 2 6v10c0 8 6 14 13 17 7-3 13-9 13-17V6L15 1Z" stroke="#c9a96a" stroke-width="1.5"/><path d="m9.5 17 4 4 7-8" stroke="#c9a96a" stroke-width="1.8"/></svg>
+    <div><strong>Full refund guarantee</strong>If you are not admitted to the Order, you receive a full refund of your contribution.</div>
+  </div>
+  <div class="ts" id="ts"></div>
+  <div class="err" id="payErr"></div>
+  <div class="actions"><button class="btn" id="payBtn">Complete your petition</button></div>
+  <p class="secure"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><rect x="1" y="7" width="12" height="8" rx="1.5" stroke="#a59a88"/><path d="M4 7V5a3 3 0 0 1 6 0v2" stroke="#a59a88"/></svg>Secure payment processed by Stripe. Your card details never reach the Order.</p>
+  <div class="demo" id="demo">Preview mode: no data is sent and no payment is requested.</div>
+</section>
+
+<!-- Received (no payment link configured yet) -->
+<section class="step center" data-step="received">
+  <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double.png?w=240" alt="">
+  <h2>Your petition has been <em>received</em>.</h2>
+  <p class="lead">Thank you, <span class="nm2"></span>. The Council will contact you personally by email with the next step of your admission.</p>
+</section>
+
+<!-- Exit · not ready -->
+<section class="step center" data-step="exit">
+  <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double.png?w=240" alt="">
+  <h2>Thank you, <span class="nm2"></span>.</h2>
+  <p class="lead">The right moment matters. Walk with us in the meantime: follow the Order, pray with us, and return when you are ready to commit.</p>
+  <a class="btn" href="https://www.instagram.com/" target="_blank" rel="noopener" id="igLink" style="text-decoration:none;display:inline-block">Follow the Order</a>
+  <p style="margin-top:22px"><button class="btn ghost" type="button" id="reconsider">Change my answer</button></p>
+</section>
+</main>
+<footer>&copy; Order of the Knights of the Holy Grail</footer>
+
+<script>
+(() => {
+"use strict";
+if (window.top !== window.self) { try { window.top.location = window.self.location; } catch (e) { document.body.innerHTML = ""; } }
+/* ============ CONFIG ============ */
+const CONFIG = {
+  endpoint: "https://script.google.com/macros/s/AKfycbzyyBh4NWbICFewjF29RUF2QecVU7KTtjH8hNTwmkI9tLv4ULT9I0-gBXMRffDa4XF_JA/exec",          // Google Apps Script web app URL (https://script.google.com/macros/s/.../exec). Empty = preview mode
+  turnstileSiteKey: "",  // Cloudflare Turnstile site key (free). Empty = disabled
+  instagram: "https://www.instagram.com/"
+};
+/* ================================ */
+
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const steps = $$(".step");
+const flow = ["intro","name","goals","obstacle","alone","why","faith","statement","invest","about","contact","review"];
+const qSteps = flow.filter(k => $(`[data-step="${k}"]`).hasAttribute("data-q")).length + 1;
+const PREVIEW = !CONFIG.endpoint;
+const t0 = Date.now();
+const id = (crypto.randomUUID ? crypto.randomUUID() : ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15>>c/4).toString(16)));
+const A = { goals: [] };
+let cur = "intro", history = [], busy = false, tsToken = "", interactions = 0;
+
+$("#igLink").href = CONFIG.instagram;
+if (PREVIEW) $("#demo").style.display = "block";
+["keydown","pointerdown","touchstart"].forEach(e => addEventListener(e, () => interactions++, { passive: true }));
+
+const clean = (s, n) => String(s || "").replace(/[\u0000-\u001f\u007f<>]/g, " ").replace(/\s+/g, " ").trim().slice(0, n);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+
+function stepEl(k){ return $(`[data-step="${k}"]`); }
+function setErr(k, msg){ const e = $(".err", stepEl(k)); if (e) e.textContent = msg || ""; }
+
+function personalize(){
+  const n = A.name ? A.name + ", " : "";
+  $$(".nm").forEach(x => x.textContent = n);
+  $$(".nm2").forEach(x => x.textContent = A.name || "brother");
+}
+
+function progress(){
+  const i = flow.indexOf(cur);
+  const qi = flow.slice(0, i + 1).filter(k => stepEl(k).hasAttribute("data-q")).length;
+  $("#bar").style.width = (cur === "intro" ? 0 : cur === "review" ? 100 : Math.round(qi / qSteps * 100)) + "%";
+  $("#count").textContent = cur === "intro" || cur === "exit" || cur === "received" || cur === "statement" ? "" : cur === "review" ? "Review" : `${qi} / ${qSteps - 1}`;
+  $("#back").hidden = cur === "intro" || cur === "received" || history.length === 0;
+}
+
+function show(k, back){
+  if (busy || k === cur) return;
+  busy = true;
+  const from = stepEl(cur), to = stepEl(k);
+  if (!back) history.push(cur);
+  from.classList.remove("on"); from.classList.add("out");
+  setTimeout(() => {
+    from.classList.remove("out");
+    to.classList.add("on");
+    cur = k; personalize(); progress(); busy = false;
+    if (k === "review") buildReview();
+    const f = $("input:not([type=checkbox]),textarea", to);
+    if (f && matchMedia("(pointer:fine)").matches) f.focus({ preventScroll: true });
+    scrollTo({ top: 0, behavior: "smooth" });
+  }, 260);
+}
+
+function validate(k){
+  const v = id => clean($(id).value, 2000);
+  switch (k){
+    case "name": A.name = clean($("#f_name").value, 40);
+      if (!/^[\p{L}][\p{L}' .-]{0,39}$/u.test(A.name)) return "Please enter your first name.";
+      break;
+    case "goals": if (!A.goals.length) return "Choose at least one."; break;
+    case "obstacle": A.obstacle = v("#f_obstacle").slice(0,1200);
+      if (A.obstacle.length < 10) return "Please write at least a few words."; break;
+    case "alone": if (!A.alone) return "Choose one."; break;
+    case "why": A.why = v("#f_why").slice(0,1500);
+      if (A.why.length < 15) return "Please write at least a sentence."; break;
+    case "faith": if (!A.confession) return "Choose your confession.";
+      if (!$("#f_commit").checked) return "Please confirm the declaration to continue.";
+      A.commit = "Yes"; break;
+    case "invest": if (!A.invest) return "Choose one."; break;
+    case "about":
+      A.age = parseInt($("#f_age").value, 10);
+      A.country = clean($("#f_country").value, 60);
+      A.job = clean($("#f_job").value, 80);
+      if (!(A.age >= 18 && A.age <= 99)) return "Admission is reserved to adults (18+).";
+      if (A.country.length < 2) return "Please enter your country.";
+      if (A.job.length < 2) return "Please enter your profession.";
+      break;
+    case "contact":
+      A.email = clean($("#f_email").value, 120).toLowerCase();
+      A.phone = clean($("#f_phone").value, 24);
+      if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(A.email)) return "Please enter a valid email.";
+      if (!/^\+?[0-9 ()-]{7,22}$/.test(A.phone) || A.phone.replace(/\D/g,"").length < 7) return "Please enter a valid number with country code.";
+      if (!$("#f_privacy").checked) return "Please accept to continue.";
+      A.privacy = "Yes"; break;
+  }
+  return "";
+}
+
+/* ---------- Network: save each step ---------- */
+async function send(stage, extra){
+  const payload = { id, stage, answers: A, hp: $("#hp_site").value, ms: Date.now() - t0, ix: interactions, ...extra };
+  if (PREVIEW){ console.info("[preview]", stage, payload); return { ok: true, preview: true }; }
+  try{
+    const r = await fetch(CONFIG.endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" }, // simple request, no CORS preflight
+      body: JSON.stringify(payload),
+      redirect: "follow", credentials: "omit", cache: "no-store"
+    });
+    return await r.json();
+  }catch(e){ return { ok: false, error: "network" }; }
+}
+
+function next(){
+  if (busy) return;
+  const err = validate(cur);
+  setErr(cur, err);
+  if (err) { const s = stepEl(cur); s.animate([{transform:"translateX(0)"},{transform:"translateX(-6px)"},{transform:"translateX(6px)"},{transform:"translateX(0)"}],{duration:260}); return; }
+  if (stepEl(cur).hasAttribute("data-q")) send(cur); // fire and forget: partial answers are saved
+  if (cur === "invest" && A.invest === "Not ready"){ send("exit"); return show("exit"); }
+  const i = flow.indexOf(cur);
+  if (i < flow.length - 1) show(flow[i + 1]);
+}
+
+/* ---------- Choices ---------- */
+$$("[data-single],[data-multi]").forEach(group => {
+  const key = group.dataset.single || group.dataset.multi, multi = !!group.dataset.multi;
+  $$(".opt", group).forEach(b => b.addEventListener("click", () => {
+    if (multi){
+      b.classList.toggle("sel");
+      A[key] = $$(".opt.sel", group).map(x => x.dataset.v);
+    } else {
+      $$(".opt", group).forEach(x => x.classList.remove("sel"));
+      b.classList.add("sel"); A[key] = b.dataset.v;
+      if (!group.hasAttribute("data-stay")) setTimeout(next, 320);
+    }
+    setErr(cur, "");
+  }));
+});
+
+/* ---------- Review ---------- */
+function buildReview(){
+  const rows = [
+    ["Name", A.name], ["Path", (A.goals || []).join(", ")], ["Confession", A.confession],
+    ["Commitment", A.invest && A.invest.replace(/EUR /g, "€").replace(" to ", " to €") + " / month"],
+    ["Age", A.age], ["Country", A.country], ["Profession", A.job], ["Email", A.email], ["WhatsApp", A.phone]
+  ];
+  $("#sum").innerHTML = rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v ?? "")}</dd>`).join("");
+  if (CONFIG.turnstileSiteKey && !window.turnstile){
+    const s = document.createElement("script");
+    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=__tsReady&render=explicit";
+    s.async = true; document.head.appendChild(s);
+  }
+}
+window.__tsReady = () => {
+  window.turnstile.render("#ts", { sitekey: CONFIG.turnstileSiteKey, theme: "dark",
+    callback: t => { tsToken = t; }, "expired-callback": () => { tsToken = ""; } });
+};
+
+$("#payBtn").addEventListener("click", async () => {
+  const btn = $("#payBtn"), e = $("#payErr");
+  e.textContent = "";
+  if ($("#hp_site").value) return; // silent: bot
+  if (Date.now() - t0 < 45000) { e.textContent = "Please take a moment to review your answers."; return; }
+  if (CONFIG.turnstileSiteKey && !tsToken) { e.textContent = "Please complete the security check above."; return; }
+  btn.disabled = true; btn.textContent = "Securing your petition...";
+  const r = await send("submit", { ts: tsToken });
+  if (r.preview){ btn.textContent = "Preview: Stripe would open here"; return; }
+  if (r.ok && r.pending){ show("received"); return; }
+  if (r.ok && r.pay && /^https:\/\/(buy|checkout)\.stripe\.com\//.test(r.pay)){
+    location.assign(r.pay); return;
+  }
+  btn.disabled = false; btn.textContent = "Complete your petition";
+  e.textContent = r.error === "rate" ? "Too many attempts. Please try again later."
+               : r.error === "network" ? "Connection problem. Please try again."
+               : "We could not verify your petition. Please refresh and try again.";
+  if (window.turnstile && CONFIG.turnstileSiteKey){ window.turnstile.reset("#ts"); tsToken = ""; }
+});
+
+/* ---------- Navigation ---------- */
+$$("[data-next]").forEach(b => b.addEventListener("click", next));
+$("#back").addEventListener("click", () => { if (history.length) show(history.pop(), true); });
+$("#reconsider").addEventListener("click", () => { history = history.filter(k => k !== "invest"); show("invest", true); });
+
+addEventListener("keydown", ev => {
+  const s = stepEl(cur);
+  if (ev.key === "Enter"){
+    if (ev.target.tagName === "TEXTAREA" && !(ev.ctrlKey || ev.metaKey)) return;
+    if (ev.target.tagName === "A" || ev.target.id === "payBtn") return;
+    if (cur === "review" || cur === "exit" || cur === "received") return;
+    ev.preventDefault(); next(); return;
+  }
+  if (/^[a-e]$/i.test(ev.key) && !/INPUT|TEXTAREA|SELECT/.test(ev.target.tagName)){
+    const o = $$(".opt", s)[ev.key.toLowerCase().charCodeAt(0) - 97];
+    if (o) o.click();
+  }
+});
+progress();
+})();
+</script>
+</body>
+</html>
