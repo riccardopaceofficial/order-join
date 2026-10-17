@@ -286,6 +286,7 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
     <button type="button" class="opt" data-v="m30"><span class="k">A</span><span><b class="pp">$30+ <small>/ month</small></b></span></button>
     <button type="button" class="opt" data-v="m300"><span class="k">B</span><span><b class="pp">$300+ <small>/ month</small></b></span></button>
     <button type="button" class="opt" data-v="knight" id="optKnight"><span class="k">C</span><span><b class="pp">$3,000+ <small>/ month</small></b></span></button>
+    <button type="button" class="opt" data-v="none"><span class="k">D</span><span>Nothing, for now</span></button>
   </div>
   <div class="err"></div>
   <div class="demo" id="demo">Preview mode: no data is sent and no payment is requested.</div>
@@ -327,6 +328,15 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
   <p class="secure" style="justify-content:center"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><rect x="1" y="7" width="12" height="8" rx="1.5" stroke="#a59a88"/><path d="M4 7V5a3 3 0 0 1 6 0v2" stroke="#a59a88"/></svg>Secure payment processed by Stripe.</p>
 </section>
 
+<!-- Exit (invests nothing) -->
+<section class="step center" data-step="exit">
+  <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double-bordeaux.png?w=240" alt="">
+  <h2>Then the Order is <em>not for you</em>, for now.</h2>
+  <p class="lead">Thank you for your honesty, <span class="nm2"></span>. Those who walk the Path invest in it. Until you are ready, you can still follow the Order and its works.</p>
+  <a class="btn" id="socialLink" href="https://orderoftheholygrail.org/" target="_blank" rel="noopener" style="text-decoration:none;display:inline-block">Follow the Order</a>
+  <p style="margin-top:22px"><button class="btn ghost" type="button" id="reconsider">Change my answer</button></p>
+</section>
+
 <!-- Received (no payment link configured yet) -->
 <section class="step center" data-step="received">
   <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double-bordeaux.png?w=240" alt="">
@@ -344,7 +354,7 @@ if (window.top !== window.self) { try { window.top.location = window.self.locati
 const CONFIG = {
   endpoint: "https://script.google.com/macros/s/AKfycbzyyBh4NWbICFewjF29RUF2QecVU7KTtjH8hNTwmkI9tLv4ULT9I0-gBXMRffDa4XF_JA/exec",
   turnstileSiteKey: "",
-  instagram: "https://www.instagram.com/"
+  social: ""   // Instagram link of the Order, when ready
 };
 const PLAN_LABEL = { m30: "$30 / month", m300: "$300 / month", knight: "$3,000 / month" };
 /* ================================ */
@@ -378,8 +388,8 @@ function personalize(){
 function progress(){
   const i = flow.indexOf(cur);
   const qi = i < 0 ? 0 : flow.slice(0, i + 1).filter(k => stepEl(k).hasAttribute("data-q")).length;
-  $("#bar").style.width = (cur === "intro" ? 0 : ["offer","knight","received"].includes(cur) ? 100 : Math.round(qi / (qTotal + 1) * 100)) + "%";
-  $("#count").textContent = ["intro","received","statement","path"].includes(cur) ? "" : cur === "knight" ? "Knighthood" : cur === "offer" ? "" : `Trial ${roman(qi)} of ${roman(qTotal)}`;
+  $("#bar").style.width = (cur === "intro" ? 0 : ["offer","knight","received","exit"].includes(cur) ? 100 : Math.round(qi / (qTotal + 1) * 100)) + "%";
+  $("#count").textContent = ["intro","received","statement","path"].includes(cur) ? "" : cur === "knight" ? "Knighthood" : (cur === "offer" || cur === "exit") ? "" : `Trial ${roman(qi)} of ${roman(qTotal)}`;
   $("#back").hidden = cur === "intro" || cur === "received" || history.length === 0;
 }
 
@@ -475,6 +485,7 @@ $$("[data-single],[data-multi]").forEach(group => {
       b.classList.add("sel"); A[key] = key === "scale" ? parseInt(b.dataset.v, 10) : b.dataset.v;
       if (key === "plan"){
         $("#payErr").textContent = "";
+        if (A.plan === "none"){ A.plan = ""; send("exit"); setTimeout(() => show("exit"), 320); setErr(cur, ""); return; }
         $("#perkGM").hidden = A.plan !== "m300";
         $("#payBtn").disabled = false; $("#payBtn").textContent = "Continue to payment \u00b7 " + PLAN_LABEL[A.plan];
         send("plan"); setTimeout(() => show(A.plan === "knight" ? "knight" : "offer"), 320);
@@ -516,6 +527,12 @@ $("#brotherBtn").addEventListener("click", () => {
   history = history.filter(k => k !== "plan"); show("plan", true);
 });
 
+$("#reconsider").addEventListener("click", () => {
+  $$(".opt", stepEl("plan")).forEach(x => x.classList.remove("sel"));
+  history = history.filter(k => k !== "plan"); show("plan", true);
+});
+if (CONFIG.social) $("#socialLink").href = CONFIG.social;
+
 /* ---------- Navigation ---------- */
 $$("[data-next]").forEach(b => b.addEventListener("click", next));
 $("#back").addEventListener("click", () => { if (history.length) show(history.pop(), true); });
@@ -526,7 +543,7 @@ addEventListener("keydown", ev => {
   if (ev.key === "Enter"){
     if (ev.target.tagName === "TEXTAREA" && !(ev.ctrlKey || ev.metaKey)) return;
     if (ev.target.tagName === "A" || ev.target.tagName === "BUTTON") return;
-    if (["plan","offer","knight","received"].includes(cur)) return;
+    if (["plan","offer","knight","received","exit"].includes(cur)) return;
     ev.preventDefault(); next(); return;
   }
   if (typing) return;
