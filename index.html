@@ -281,16 +281,31 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 <section class="step" data-step="plan" data-q>
   <div class="eyebrow"><b>IX</b>Your commitment</div>
   <h2><span class="nm"></span>how much are you ready to <em>invest</em> in who you are called to become?</h2>
-  <p class="lead">Every member receives the weekly gathering, daily accountability, a place at a Table and The Knight's Path. You may leave at any time.</p>
-  <div class="opts" data-single="plan" data-stay>
-    <button type="button" class="opt" data-v="monthly"><span class="k">A</span><span><b class="pp">$30 <small>/ month</small></b><small>Member of the Order</small></span></button>
-    <button type="button" class="opt" data-v="annual"><span class="k">B</span><span><b class="pp">$300 <small>/ year</small><span class="tag">2 months free</span></b><small>Member of the Order, billed once a year</small></span></button>
-    <button type="button" class="opt" data-v="knight" id="optKnight"><span class="k">C</span><span><b class="pp">$3,000+ <small>/ year</small></b><small>For those called to Knighthood</small></span></button>
+  <p class="lead">Answer honestly. There is no wrong answer.</p>
+  <div class="opts" data-single="plan">
+    <button type="button" class="opt" data-v="m30"><span class="k">A</span><span><b class="pp">$30+ <small>/ month</small></b></span></button>
+    <button type="button" class="opt" data-v="m300"><span class="k">B</span><span><b class="pp">$300+ <small>/ month</small></b></span></button>
+    <button type="button" class="opt" data-v="knight" id="optKnight"><span class="k">C</span><span><b class="pp">$3,000+ <small>/ month</small></b></span></button>
   </div>
-  <div class="err" id="payErr"></div>
-  <div class="actions" id="payActions" hidden><button class="btn" id="payBtn">Continue to payment</button></div>
-  <p class="secure"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><rect x="1" y="7" width="12" height="8" rx="1.5" stroke="#a59a88"/><path d="M4 7V5a3 3 0 0 1 6 0v2" stroke="#a59a88"/></svg>Secure payment processed by Stripe. Your card details never reach the Order.</p>
+  <div class="err"></div>
   <div class="demo" id="demo">Preview mode: no data is sent and no payment is requested.</div>
+</section>
+
+<!-- Offer (30 / 300) -->
+<section class="step" data-step="offer">
+  <div class="eyebrow">Your place in the Order</div>
+  <h2>What you will <em>receive</em>.</h2>
+  <p class="lead">You may leave at any time.</p>
+  <ul class="perks">
+    <li><b>Weekly gathering</b><span>A live gathering of the Order every week.</span></li>
+    <li><b>Daily accountability</b><span>A short daily check-in, so no one walks alone.</span></li>
+    <li><b>A place at a Table</b><span>Your Table of the Order, with the members who walk beside you.</span></li>
+    <li><b>The Knight's Path</b><span>The book of the Order, to walk the Path day by day.</span></li>
+    <li id="perkGM" hidden><b>A weekly call with the Grand Master</b><span>Every week, in person, with the Grand Master of the Order.</span></li>
+  </ul>
+  <div class="err" id="payErr"></div>
+  <div class="actions"><button class="btn" id="payBtn">Continue to payment</button></div>
+  <p class="secure"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><rect x="1" y="7" width="12" height="8" rx="1.5" stroke="#a59a88"/><path d="M4 7V5a3 3 0 0 1 6 0v2" stroke="#a59a88"/></svg>Secure payment processed by Stripe. Your card details never reach the Order.</p>
 </section>
 
 <!-- Knighthood -->
@@ -299,14 +314,14 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
   <h2>Knighthood is a <em>vocation</em>, not a subscription.</h2>
   <p class="lead">Knights carry the Order: they sustain its works, lead its Tables and answer personally to the Grand Master. Those who apply give first, then present themselves.</p>
   <ol class="how left">
-    <li><b>I</b>Your contribution of $3,000 a year</li>
+    <li><b>I</b>Your contribution of $3,000 a month</li>
     <li><b>II</b>Your application: who you are, why you are called, how you will serve</li>
     <li><b>III</b>A personal interview with the Grand Master</li>
   </ol>
   <div class="guar"><svg width="30" height="34" viewBox="0 0 30 34" fill="none"><path d="M15 1 2 6v10c0 8 6 14 13 17 7-3 13-9 13-17V6L15 1Z" stroke="#c9a96a" stroke-width="1.5"/><path d="m9.5 17 4 4 7-8" stroke="#c9a96a" stroke-width="1.8"/></svg><div><strong>Full refund guarantee</strong>If the Grand Master does not confirm your knighthood, your contribution is refunded in full.</div></div>
   <div class="err" id="knightErr"></div>
   <div class="stack">
-    <button class="btn" type="button" id="knightBtn">Apply for Knighthood &middot; $3,000 / year</button>
+    <button class="btn" type="button" id="knightBtn">Apply for Knighthood &middot; $3,000 / month</button>
     <button class="btn ghost" type="button" id="brotherBtn">Join the Brotherhood only</button>
   </div>
   <p class="secure" style="justify-content:center"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><rect x="1" y="7" width="12" height="8" rx="1.5" stroke="#a59a88"/><path d="M4 7V5a3 3 0 0 1 6 0v2" stroke="#a59a88"/></svg>Secure payment processed by Stripe.</p>
@@ -331,7 +346,7 @@ const CONFIG = {
   turnstileSiteKey: "",
   instagram: "https://www.instagram.com/"
 };
-const PLAN_LABEL = { monthly: "$30 / month", annual: "$300 / year", knight: "$3,000 / year" };
+const PLAN_LABEL = { m30: "$30 / month", m300: "$300 / month", knight: "$3,000 / month" };
 /* ================================ */
 
 const $ = (s, r = document) => r.querySelector(s);
@@ -363,8 +378,8 @@ function personalize(){
 function progress(){
   const i = flow.indexOf(cur);
   const qi = i < 0 ? 0 : flow.slice(0, i + 1).filter(k => stepEl(k).hasAttribute("data-q")).length;
-  $("#bar").style.width = (cur === "intro" ? 0 : ["knight","received"].includes(cur) ? 100 : Math.round(qi / (qTotal + 1) * 100)) + "%";
-  $("#count").textContent = ["intro","received","statement","path"].includes(cur) ? "" : cur === "knight" ? "Knighthood" : `Trial ${roman(qi)} of ${roman(qTotal)}`;
+  $("#bar").style.width = (cur === "intro" ? 0 : ["offer","knight","received"].includes(cur) ? 100 : Math.round(qi / (qTotal + 1) * 100)) + "%";
+  $("#count").textContent = ["intro","received","statement","path"].includes(cur) ? "" : cur === "knight" ? "Knighthood" : cur === "offer" ? "" : `Trial ${roman(qi)} of ${roman(qTotal)}`;
   $("#back").hidden = cur === "intro" || cur === "received" || history.length === 0;
 }
 
@@ -460,8 +475,10 @@ $$("[data-single],[data-multi]").forEach(group => {
       b.classList.add("sel"); A[key] = key === "scale" ? parseInt(b.dataset.v, 10) : b.dataset.v;
       if (key === "plan"){
         $("#payErr").textContent = "";
-        if (A.plan === "knight"){ $("#payActions").hidden = true; send("plan"); setTimeout(() => show("knight"), 320); }
-        else { $("#payActions").hidden = false; $("#payBtn").textContent = "Continue to payment \u00b7 " + PLAN_LABEL[A.plan]; }
+        $("#perkGM").hidden = A.plan !== "m300";
+        $("#payBtn").disabled = false; $("#payBtn").textContent = "Continue to payment \u00b7 " + PLAN_LABEL[A.plan];
+        send("plan"); setTimeout(() => show(A.plan === "knight" ? "knight" : "offer"), 320);
+        setErr(cur, ""); return;
       }
       if (key === "sponsor"){
         const f = $("#sponsorField"); f.hidden = A.sponsor !== "Yes";
@@ -492,10 +509,10 @@ async function pay(btn, errEl, label){
                     : "We could not verify your answers. Please refresh and try again.";
 }
 $("#payBtn").addEventListener("click", () => pay($("#payBtn"), $("#payErr"), "Continue to payment \u00b7 " + PLAN_LABEL[A.plan]));
-$("#knightBtn").addEventListener("click", () => { A.plan = "knight"; pay($("#knightBtn"), $("#knightErr"), "Apply for Knighthood \u00b7 $3,000 / year"); });
+$("#knightBtn").addEventListener("click", () => { A.plan = "knight"; pay($("#knightBtn"), $("#knightErr"), "Apply for Knighthood \u00b7 $3,000 / month"); });
 $("#brotherBtn").addEventListener("click", () => {
   A.plan = ""; $$(".opt", stepEl("plan")).forEach(x => x.classList.remove("sel"));
-  $("#optKnight").hidden = true; $("#payActions").hidden = true;
+  $("#optKnight").hidden = true;
   history = history.filter(k => k !== "plan"); show("plan", true);
 });
 
@@ -509,7 +526,7 @@ addEventListener("keydown", ev => {
   if (ev.key === "Enter"){
     if (ev.target.tagName === "TEXTAREA" && !(ev.ctrlKey || ev.metaKey)) return;
     if (ev.target.tagName === "A" || ev.target.tagName === "BUTTON") return;
-    if (["plan","knight","received"].includes(cur)) return;
+    if (["plan","offer","knight","received"].includes(cur)) return;
     ev.preventDefault(); next(); return;
   }
   if (typing) return;
