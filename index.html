@@ -113,6 +113,13 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 .perks b{display:block;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;color:var(--gold);margin-bottom:2px}
 .perks span{color:var(--mute);font-size:15px}
 .reveal{margin-top:22px}
+.opt[hidden],.actions[hidden],.step[hidden],div[hidden]{display:none!important}
+.opt .pp{display:block;font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;color:var(--gold);line-height:1.1}
+.opt .pp small{display:inline;font-family:Inter,sans-serif;font-size:14px;color:var(--mute);font-weight:400;margin:0}
+.opt .tag{display:inline-block;margin-left:8px;font:600 10px Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:3px 7px;border-radius:2px;vertical-align:middle}
+.how.left{align-items:flex-start;margin:0 0 26px}
+.stack{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:8px}
+.stack .btn{min-width:min(100%,420px)}
 @media (max-width:560px){.scale{grid-template-columns:repeat(5,1fr)}.how{flex-direction:column;align-items:center;gap:10px}}
 </style>
 </head>
@@ -129,14 +136,14 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 
 <!-- Intro -->
 <section class="step on center" data-step="intro">
-  <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double.png?w=240" alt="Order of the Knights of the Holy Grail">
+  <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double-bordeaux.png?w=240" alt="Order of the Knights of the Holy Grail">
   <div class="eyebrow">Admissions are limited</div>
   <h1>The Trial of <em>Admission</em></h1>
-  <p class="lead">This is not a sign-up form. It is the first trial of the Knight's Path. Every petition is examined personally by the Council, and not every petition is accepted.</p>
+  <p class="lead">This is not a sign-up form. It is the first trial of the Knight's Path: a few honest answers, and the commitment you are ready to make.</p>
   <ol class="how">
     <li><b>I</b>Answer with truth</li>
-    <li><b>II</b>The Council examines your petition</li>
-    <li><b>III</b>If found worthy, you are admitted</li>
+    <li><b>II</b>Choose your commitment</li>
+    <li><b>III</b>Take your place at the Table</li>
   </ol>
   <button class="btn" data-next>Begin the trial</button>
   <p class="hint" style="margin-top:18px">About 3 minutes &middot; Strictly confidential</p>
@@ -146,7 +153,7 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 <section class="step" data-step="name" data-q>
   <div class="eyebrow"><b>I</b>Your name</div>
   <h2>What is your first name?</h2>
-  <p class="lead">The Council reads every petition by name.</p>
+  <p class="lead">The Order knows each of its members by name.</p>
   <input type="text" id="f_name" maxlength="40" autocomplete="given-name" placeholder="Type your answer here">
   <div class="err"></div>
   <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd">press <kbd>Enter &crarr;</kbd></span></div>
@@ -155,10 +162,10 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 <!-- 02 Email -->
 <section class="step" data-step="email" data-q>
   <div class="eyebrow"><b>II</b>Contact</div>
-  <h2><span class="nm"></span>where should the Council send its <em>decision</em>?</h2>
-  <p class="lead">The verdict of the Council is sent privately. Your email is used for nothing else.</p>
+  <h2><span class="nm"></span>where should the Order <em>write to you</em>?</h2>
+  <p class="lead">Your welcome and your place at the Table are sent here. Your email is used for nothing else.</p>
   <input type="email" id="f_email" maxlength="120" autocomplete="email" placeholder="name@example.com">
-  <label class="check"><input type="checkbox" id="f_privacy"><span>I agree that the Order may store and use my answers to evaluate my petition, as described in the <a href="https://orderoftheholygrail.org/privacy-policy/" target="_blank" rel="noopener">privacy policy</a>.</span></label>
+  <label class="check"><input type="checkbox" id="f_privacy"><span>I agree that the Order may store and use my answers to process my petition and membership, as described in the <a href="https://orderoftheholygrail.org/privacy-policy/" target="_blank" rel="noopener">privacy policy</a>.</span></label>
   <div class="err"></div>
   <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd">press <kbd>Enter &crarr;</kbd></span></div>
 </section>
@@ -229,34 +236,23 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 <!-- What awaits -->
 <section class="step" data-step="path">
   <div class="eyebrow">The Knight's Path</div>
-  <h2>What awaits those who are <em>admitted</em></h2>
+  <h2>What awaits you in the <em>Order</em></h2>
   <p class="lead">A rule of life for the modern knight: the victory over oneself, lived together.</p>
   <ul class="perks">
     <li><b>Weekly formation</b><span>A live gathering of the Order every week, to be formed in faith, discipline and character.</span></li>
     <li><b>Daily accountability</b><span>A short daily check-in. No one walks alone, and no one is allowed to quietly give up.</span></li>
     <li><b>The four pillars</b><span>Your own goals in body, faith, work and mind, measured and pursued with method.</span></li>
-    <li><b>A true brotherhood</b><span>Admission to the circle of the Order: people of faith who want more from their lives, and expect more from you.</span></li>
+    <li><b>A true brotherhood</b><span>A place at a Table of the Order: people of faith who want more from their lives, and expect more from you.</span></li>
+    <li><b>The Knight's Path</b><span>The book of the Order, to walk the Path day by day.</span></li>
   </ul>
   <div class="actions"><button class="btn" data-next>Continue</button></div>
 </section>
 
-<!-- 07 Price -->
-<section class="step" data-step="price" data-q>
-  <div class="eyebrow"><b>VII</b>Membership</div>
-  <h2>The contribution is <em>&euro;29 per month</em>. Are you ready to commit?</h2>
-  <p class="lead">It is paid when you seal your petition, and refunded in full if you are not admitted. Once admitted, you may leave at any time.</p>
-  <div class="opts" data-single="ready">
-    <button type="button" class="opt" data-v="Yes"><span class="k">A</span><span>Yes, I am ready</span></button>
-    <button type="button" class="opt" data-v="Not yet"><span class="k">B</span><span>Not yet</span></button>
-  </div>
-  <div class="err"></div>
-</section>
-
 <!-- 08 Sponsor -->
 <section class="step" data-step="sponsor" data-q>
-  <div class="eyebrow"><b>VIII</b>Introduction</div>
+  <div class="eyebrow"><b>VII</b>Introduction</div>
   <h2>Is a member of the Order <em>introducing</em> you?</h2>
-  <p class="lead">Petitions presented by a member of the Order are examined with priority.</p>
+  <p class="lead">If someone brought you to the Order, tell us who: they will walk beside you.</p>
   <div class="opts" data-single="sponsor" data-stay>
     <button type="button" class="opt" data-v="Yes"><span class="k">A</span><span>Yes</span></button>
     <button type="button" class="opt" data-v="No"><span class="k">B</span><span>No</span></button>
@@ -268,7 +264,7 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 
 <!-- 09 About -->
 <section class="step" data-step="about" data-q>
-  <div class="eyebrow"><b>IX</b>About you</div>
+  <div class="eyebrow"><b>VIII</b>About you</div>
   <h2>Tell us a little <em>about yourself</em>.</h2>
   <p class="lead">&nbsp;</p>
   <div class="field"><label for="f_age">Age</label><input type="number" id="f_age" min="18" max="99" inputmode="numeric" placeholder="e.g. 34"></div>
@@ -281,39 +277,46 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
   <div class="actions"><button class="btn" data-next>Continue</button></div>
 </section>
 
-<!-- Review & pay -->
-<section class="step" data-step="review">
-  <div class="eyebrow">Final step</div>
-  <h2><span class="nm"></span>your petition is ready to be <em>sealed</em>.</h2>
-  <p class="lead">Once sealed, it is placed before the Council. Admission is not guaranteed.</p>
-  <div class="card"><dl class="sum" id="sum"></dl></div>
-  <div class="price"><span>Membership</span><strong>&euro;29 <small>/ month</small></strong></div>
-  <div class="guar">
-    <svg width="30" height="34" viewBox="0 0 30 34" fill="none"><path d="M15 1 2 6v10c0 8 6 14 13 17 7-3 13-9 13-17V6L15 1Z" stroke="#c9a96a" stroke-width="1.5"/><path d="m9.5 17 4 4 7-8" stroke="#c9a96a" stroke-width="1.8"/></svg>
-    <div><strong>Full refund guarantee</strong>If you are not admitted to the Order, you receive a full refund of your contribution.</div>
+<!-- 09 Plan -->
+<section class="step" data-step="plan" data-q>
+  <div class="eyebrow"><b>IX</b>Your commitment</div>
+  <h2><span class="nm"></span>how much are you ready to <em>invest</em> in who you are called to become?</h2>
+  <p class="lead">Every member receives the weekly gathering, daily accountability, a place at a Table and The Knight's Path. You may leave at any time.</p>
+  <div class="opts" data-single="plan" data-stay>
+    <button type="button" class="opt" data-v="monthly"><span class="k">A</span><span><b class="pp">$30 <small>/ month</small></b><small>Member of the Order</small></span></button>
+    <button type="button" class="opt" data-v="annual"><span class="k">B</span><span><b class="pp">$300 <small>/ year</small><span class="tag">2 months free</span></b><small>Member of the Order, billed once a year</small></span></button>
+    <button type="button" class="opt" data-v="knight" id="optKnight"><span class="k">C</span><span><b class="pp">$3,000+ <small>/ year</small></b><small>For those called to Knighthood</small></span></button>
   </div>
-  <p class="next"><b>What happens next:</b> the Council examines your petition personally and sends its verdict by email. If admitted, you receive your welcome into the Order and your place on the Knight's Path.</p>
-  <div class="ts" id="ts"></div>
   <div class="err" id="payErr"></div>
-  <div class="actions"><button class="btn" id="payBtn">Seal my petition</button></div>
+  <div class="actions" id="payActions" hidden><button class="btn" id="payBtn">Continue to payment</button></div>
   <p class="secure"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><rect x="1" y="7" width="12" height="8" rx="1.5" stroke="#a59a88"/><path d="M4 7V5a3 3 0 0 1 6 0v2" stroke="#a59a88"/></svg>Secure payment processed by Stripe. Your card details never reach the Order.</p>
   <div class="demo" id="demo">Preview mode: no data is sent and no payment is requested.</div>
 </section>
 
-<!-- Received (no payment link configured yet) -->
-<section class="step center" data-step="received">
-  <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double.png?w=240" alt="">
-  <h2>Your petition has been <em>sealed</em>.</h2>
-  <p class="lead"><span class="nm2"></span>, your petition now lies before the Council. You will receive its verdict personally, by email.</p>
+<!-- Knighthood -->
+<section class="step" data-step="knight">
+  <div class="eyebrow">Knighthood</div>
+  <h2>Knighthood is a <em>vocation</em>, not a subscription.</h2>
+  <p class="lead">Knights carry the Order: they sustain its works, lead its Tables and answer personally to the Grand Master. Those who apply give first, then present themselves.</p>
+  <ol class="how left">
+    <li><b>I</b>Your contribution of $3,000 a year</li>
+    <li><b>II</b>Your application: who you are, why you are called, how you will serve</li>
+    <li><b>III</b>A personal interview with the Grand Master</li>
+  </ol>
+  <div class="guar"><svg width="30" height="34" viewBox="0 0 30 34" fill="none"><path d="M15 1 2 6v10c0 8 6 14 13 17 7-3 13-9 13-17V6L15 1Z" stroke="#c9a96a" stroke-width="1.5"/><path d="m9.5 17 4 4 7-8" stroke="#c9a96a" stroke-width="1.8"/></svg><div><strong>Full refund guarantee</strong>If the Grand Master does not confirm your knighthood, your contribution is refunded in full.</div></div>
+  <div class="err" id="knightErr"></div>
+  <div class="stack">
+    <button class="btn" type="button" id="knightBtn">Apply for Knighthood &middot; $3,000 / year</button>
+    <button class="btn ghost" type="button" id="brotherBtn">Join the Brotherhood only</button>
+  </div>
+  <p class="secure" style="justify-content:center"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><rect x="1" y="7" width="12" height="8" rx="1.5" stroke="#a59a88"/><path d="M4 7V5a3 3 0 0 1 6 0v2" stroke="#a59a88"/></svg>Secure payment processed by Stripe.</p>
 </section>
 
-<!-- Exit: not yet -->
-<section class="step center" data-step="exit">
-  <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double.png?w=240" alt="">
-  <h2>Thank you, <span class="nm2"></span>.</h2>
-  <p class="lead">The right moment matters. We will keep you close and write to you from time to time. When you are ready, your petition will be waiting.</p>
-  <a class="btn" href="https://www.instagram.com/" target="_blank" rel="noopener" id="igLink" style="text-decoration:none;display:inline-block">Follow the Order</a>
-  <p style="margin-top:22px"><button class="btn ghost" type="button" id="reconsider">Change my answer</button></p>
+<!-- Received (no payment link configured yet) -->
+<section class="step center" data-step="received">
+  <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double-bordeaux.png?w=240" alt="">
+  <h2>Your place is <em>reserved</em>.</h2>
+  <p class="lead"><span class="nm2"></span>, the Order will write to you personally within 48 hours to complete your membership.</p>
 </section>
 </main>
 <footer>&copy; Order of the Knights of the Holy Grail</footer>
@@ -328,11 +331,12 @@ const CONFIG = {
   turnstileSiteKey: "",
   instagram: "https://www.instagram.com/"
 };
+const PLAN_LABEL = { monthly: "$30 / month", annual: "$300 / year", knight: "$3,000 / year" };
 /* ================================ */
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-const flow = ["intro","name","email","goals","obstacle","scale","faith","statement","path","price","sponsor","about","review"];
+const flow = ["intro","name","email","goals","obstacle","scale","faith","statement","path","sponsor","about","plan"];
 const qTotal = flow.filter(k => stepEl(k).hasAttribute("data-q")).length;
 const PREVIEW = !CONFIG.endpoint;
 const t0 = Date.now();
@@ -340,7 +344,6 @@ const id = (crypto.randomUUID ? crypto.randomUUID() : ([1e7]+-1e3+-4e3+-8e3+-1e1
 const A = { goals: [] };
 let cur = "intro", history = [], busy = false, tsToken = "", interactions = 0;
 
-$("#igLink").href = CONFIG.instagram;
 if (PREVIEW) $("#demo").style.display = "block";
 ["keydown","pointerdown","touchstart"].forEach(e => addEventListener(e, () => interactions++, { passive: true }));
 
@@ -360,8 +363,8 @@ function personalize(){
 function progress(){
   const i = flow.indexOf(cur);
   const qi = i < 0 ? 0 : flow.slice(0, i + 1).filter(k => stepEl(k).hasAttribute("data-q")).length;
-  $("#bar").style.width = (cur === "intro" ? 0 : (cur === "review" || cur === "received") ? 100 : Math.round(qi / (qTotal + 1) * 100)) + "%";
-  $("#count").textContent = ["intro","exit","received","statement","path"].includes(cur) ? "" : cur === "review" ? "Seal" : `Trial ${roman(qi)} of ${roman(qTotal)}`;
+  $("#bar").style.width = (cur === "intro" ? 0 : ["knight","received"].includes(cur) ? 100 : Math.round(qi / (qTotal + 1) * 100)) + "%";
+  $("#count").textContent = ["intro","received","statement","path"].includes(cur) ? "" : cur === "knight" ? "Knighthood" : `Trial ${roman(qi)} of ${roman(qTotal)}`;
   $("#back").hidden = cur === "intro" || cur === "received" || history.length === 0;
 }
 
@@ -375,7 +378,6 @@ function show(k, back){
     from.classList.remove("out");
     to.classList.add("on");
     cur = k; personalize(); progress(); busy = false;
-    if (k === "review") buildReview();
     const f = $("input:not([type=checkbox]):not([hidden]),textarea", to);
     if (f && f.offsetParent && matchMedia("(pointer:fine)").matches) f.focus({ preventScroll: true });
     scrollTo({ top: 0, behavior: "smooth" });
@@ -399,7 +401,7 @@ function validate(k){
     case "faith": if (!A.confession) return "Choose your confession.";
       if (!$("#f_commit").checked) return "Please confirm the declaration to continue.";
       A.commit = "Yes"; break;
-    case "price": if (!A.ready) return "Choose one."; break;
+    case "plan": if (!A.plan) return "Choose your commitment."; break;
     case "sponsor":
       if (!A.sponsor) return "Choose one.";
       A.sponsorName = A.sponsor === "Yes" ? clean($("#f_sponsor").value, 80) : "";
@@ -442,7 +444,6 @@ function next(){
   setErr(cur, err);
   if (err) { stepEl(cur).animate([{transform:"translateX(0)"},{transform:"translateX(-6px)"},{transform:"translateX(6px)"},{transform:"translateX(0)"}],{duration:260}); return; }
   if (stepEl(cur).hasAttribute("data-q")) send(cur);
-  if (cur === "price" && A.ready === "Not yet"){ send("exit"); return show("exit"); }
   const i = flow.indexOf(cur);
   if (i < flow.length - 1) show(flow[i + 1]);
 }
@@ -457,6 +458,11 @@ $$("[data-single],[data-multi]").forEach(group => {
     } else {
       $$(".opt", group).forEach(x => x.classList.remove("sel"));
       b.classList.add("sel"); A[key] = key === "scale" ? parseInt(b.dataset.v, 10) : b.dataset.v;
+      if (key === "plan"){
+        $("#payErr").textContent = "";
+        if (A.plan === "knight"){ $("#payActions").hidden = true; send("plan"); setTimeout(() => show("knight"), 320); }
+        else { $("#payActions").hidden = false; $("#payBtn").textContent = "Continue to payment \u00b7 " + PLAN_LABEL[A.plan]; }
+      }
       if (key === "sponsor"){
         const f = $("#sponsorField"); f.hidden = A.sponsor !== "Yes";
         if (!f.hidden) $("#f_sponsor").focus({ preventScroll: true });
@@ -467,56 +473,43 @@ $$("[data-single],[data-multi]").forEach(group => {
   }));
 });
 
-/* ---------- Review ---------- */
-function buildReview(){
-  const rows = [
-    ["Name", A.name], ["Email", A.email], ["Path", (A.goals || []).join(", ")],
-    ["Commitment", A.scale ? A.scale + " / 10" : ""], ["Confession", A.confession],
-    ["Introduced by", A.sponsor === "Yes" ? A.sponsorName : "No one"],
-    ["Age", A.age], ["Country", A.country], ["Profession", A.job], ["WhatsApp", A.phone]
-  ];
-  $("#sum").innerHTML = rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v ?? "")}</dd>`).join("");
-  if (CONFIG.turnstileSiteKey && !window.turnstile){
-    const s = document.createElement("script");
-    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=__tsReady&render=explicit";
-    s.async = true; document.head.appendChild(s);
-  }
-}
-window.__tsReady = () => {
-  window.turnstile.render("#ts", { sitekey: CONFIG.turnstileSiteKey, theme: "dark",
-    callback: t => { tsToken = t; }, "expired-callback": () => { tsToken = ""; } });
-};
-
-$("#payBtn").addEventListener("click", async () => {
-  const btn = $("#payBtn"), e = $("#payErr");
-  e.textContent = "";
+/* ---------- Payment ---------- */
+async function pay(btn, errEl, label){
+  errEl.textContent = "";
   if ($("#hp_site").value) return;
-  if (Date.now() - t0 < 45000) { e.textContent = "Please take a moment to review your answers."; return; }
-  if (CONFIG.turnstileSiteKey && !tsToken) { e.textContent = "Please complete the security check above."; return; }
-  btn.disabled = true; btn.textContent = "Sealing your petition...";
-  const r = await send("submit", { ts: tsToken });
+  if (Date.now() - t0 < 45000) { errEl.textContent = "Please take a moment to review your answers."; return; }
+  btn.disabled = true; btn.textContent = "Opening secure payment...";
+  const r = await send("submit", { plan: A.plan });
   if (r.preview){ btn.textContent = "Preview: Stripe would open here"; return; }
+  if (r.ok && r.pay && /^https:\/\/(buy|checkout)\.stripe\.com\//.test(r.pay)){
+    try { localStorage.setItem("ohg_petition", JSON.stringify({ id, name: A.name, email: A.email, plan: A.plan })); } catch (e) {}
+    location.assign(r.pay); return;
+  }
   if (r.ok && r.pending){ show("received"); return; }
-  if (r.ok && r.pay && /^https:\/\/(buy|checkout)\.stripe\.com\//.test(r.pay)){ location.assign(r.pay); return; }
-  btn.disabled = false; btn.textContent = "Seal my petition";
-  e.textContent = r.error === "rate" ? "Too many attempts. Please try again later."
-               : r.error === "network" ? "Connection problem. Please try again."
-               : "We could not verify your petition. Please refresh and try again.";
-  if (window.turnstile && CONFIG.turnstileSiteKey){ window.turnstile.reset("#ts"); tsToken = ""; }
+  btn.disabled = false; btn.textContent = label;
+  errEl.textContent = r.error === "rate" ? "Too many attempts. Please try again later."
+                    : r.error === "network" ? "Connection problem. Please try again."
+                    : "We could not verify your answers. Please refresh and try again.";
+}
+$("#payBtn").addEventListener("click", () => pay($("#payBtn"), $("#payErr"), "Continue to payment \u00b7 " + PLAN_LABEL[A.plan]));
+$("#knightBtn").addEventListener("click", () => { A.plan = "knight"; pay($("#knightBtn"), $("#knightErr"), "Apply for Knighthood \u00b7 $3,000 / year"); });
+$("#brotherBtn").addEventListener("click", () => {
+  A.plan = ""; $$(".opt", stepEl("plan")).forEach(x => x.classList.remove("sel"));
+  $("#optKnight").hidden = true; $("#payActions").hidden = true;
+  history = history.filter(k => k !== "plan"); show("plan", true);
 });
 
 /* ---------- Navigation ---------- */
 $$("[data-next]").forEach(b => b.addEventListener("click", next));
 $("#back").addEventListener("click", () => { if (history.length) show(history.pop(), true); });
-$("#reconsider").addEventListener("click", () => { history = history.filter(k => k !== "price"); show("price", true); });
 
 addEventListener("keydown", ev => {
   const s = stepEl(cur);
   const typing = /INPUT|TEXTAREA|SELECT/.test(ev.target.tagName);
   if (ev.key === "Enter"){
     if (ev.target.tagName === "TEXTAREA" && !(ev.ctrlKey || ev.metaKey)) return;
-    if (ev.target.tagName === "A" || ev.target.id === "payBtn") return;
-    if (["review","exit","received"].includes(cur)) return;
+    if (ev.target.tagName === "A" || ev.target.tagName === "BUTTON") return;
+    if (["plan","knight","received"].includes(cur)) return;
     ev.preventDefault(); next(); return;
   }
   if (typing) return;
@@ -524,7 +517,7 @@ addEventListener("keydown", ev => {
     const o = $(`.opt[data-v="${ev.key === "0" ? 10 : ev.key}"]`, s); if (o) o.click(); return;
   }
   if (/^[a-e]$/i.test(ev.key) && !$("[data-noletters]", s)){
-    const o = $$(".opt", s)[ev.key.toLowerCase().charCodeAt(0) - 97];
+    const o = $$(".opt:not([hidden])", s)[ev.key.toLowerCase().charCodeAt(0) - 97];
     if (o) o.click();
   }
 });
