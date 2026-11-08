@@ -113,6 +113,11 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 .perks li svg{margin-top:4px}
 .perks b{display:block;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;color:var(--gold);margin-bottom:2px}
 .perks span{color:var(--mute);font-size:15px}
+.tithe{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;border:1px solid var(--gold);padding:20px 24px;margin:26px 0 6px;border-radius:4px}
+.tithe strong{font-family:"Cormorant Garamond",serif;font-size:56px;line-height:1;color:var(--gold);font-weight:600}
+.tithe p{margin:0;font-size:17px;line-height:1.5}
+.tithe p b{color:var(--gold)}
+@media (max-width:480px){.tithe{grid-template-columns:1fr;gap:6px;text-align:center}}
 .reveal{margin-top:22px}
 .opt[hidden],.actions[hidden],.step[hidden],div[hidden]{display:none!important}
 .opt .pp{display:block;font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:600;color:var(--gold);line-height:1.1}
@@ -225,6 +230,7 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
     <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f9e5b"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Walk a real path of growth</b><span>Step by step, every stage you reach in the Order is marked and recognised.</span></div></li>
     <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f9e5b"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>A journey to deepen your faith</b><span>The Grail Times, the Order's members-only quarterly, takes you further with every issue.</span></div></li>
   </ul>
+  <div class="tithe"><strong>10%</strong><p>of every contribution goes to the <b>Grail Quest</b>, funding the philanthropic works of the Order.</p></div>
   <div class="rule"></div>
   <h2 style="font-size:clamp(24px,3.6vw,32px)"><span class="nm"></span>how much are you ready to invest each month in who you are called to become?</h2>
   <div class="opts" data-single="plan" data-stay style="margin-top:18px">
