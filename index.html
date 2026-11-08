@@ -109,7 +109,8 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
 .next{font-size:14px;color:var(--mute);margin:-6px 0 6px}
 .next b{color:var(--ink);font-weight:500}
 .perks{list-style:none;display:grid;gap:14px;margin:6px 0 4px}
-.perks li{border:1px solid var(--line);border-left:2px solid var(--gold);padding:16px 18px;border-radius:4px;background:rgba(201,169,106,.03)}
+.perks li{display:grid;grid-template-columns:22px 1fr;gap:14px;align-items:start;border:1px solid var(--line);padding:16px 18px;border-radius:4px;background:rgba(201,169,106,.03)}
+.perks li svg{margin-top:4px}
 .perks b{display:block;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;color:var(--gold);margin-bottom:2px}
 .perks span{color:var(--mute);font-size:15px}
 .reveal{margin-top:22px}
@@ -178,12 +179,13 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
   <div class="actions"><button class="btn" data-next>Continue</button></div>
 </section>
 
-<!-- 3 Obstacle (optional) -->
+<!-- 3 Obstacle and ambition -->
 <section class="step" data-step="obstacle" data-q>
   <div class="eyebrow"><b>II</b>Who you want to become</div>
   <h2>What is holding you back today<span class="nm-end"></span>?</h2>
-  <p class="lead">Optional. A few honest words are enough.</p>
-  <textarea id="f_obstacle" maxlength="1200" placeholder="Write freely..."></textarea>
+  <textarea id="f_obstacle" maxlength="550" placeholder="Be specific..." style="min-height:96px"></textarea>
+  <h2 style="margin-top:30px">And what do you want to <em>achieve</em>?</h2>
+  <textarea id="f_achieve" maxlength="550" placeholder="Write freely..." style="min-height:96px"></textarea>
   <div class="err"></div>
   <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd"><kbd>Ctrl + Enter &crarr;</kbd></span></div>
 </section>
@@ -217,12 +219,12 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
   <h2>What awaits you in <em>the Order</em></h2>
   <p class="lead">A path to master body, soul, work and mind, walked together.</p>
   <ul class="perks">
-    <li><b>A brotherhood for life</b><span>Christian men and women who want more from their lives, and expect more from you. You will never walk alone again.</span></li>
-    <li><b>The Knight's Path</b><span>Forty days to take back command of your life: iron discipline, a living faith, a clear mind and the habits that make you unshakable.</span></li>
-    <li><b>Serviam, every morning</b><span>Each day begins with your brothers and sisters in the Order's private circle. One word, one promise, kept together.</span></li>
-    <li><b>The monthly gathering</b><span>Once a month the whole Order meets live. New members are welcomed, victories are shared, the next step is set.</span></li>
-    <li><b>Your rise in the Order</b><span>Aspirant on your first day, Novice after seven, Brother or Sister after forty, sealed by your oath.</span></li>
-    <li><b>The Grail Times</b><span>The Order's quarterly, reserved for members: its research, its history and the voice of the Grand Master.</span></li>
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f9e5b"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>You will never walk alone again</b><span>A brotherhood of Christian men and women who want more from their lives, and expect more from you.</span></div></li>
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f9e5b"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Take back command of your life</b><span>The Knight's Path: forty days to build iron discipline, a living faith and a clear mind.</span></div></li>
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f9e5b"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Start every day with purpose</b><span>A shared morning commitment keeps you steady, with brothers and sisters who notice when you fall behind.</span></div></li>
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f9e5b"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Grow among people who raise your standards</b><span>Once a month the whole Order meets live: victories are shared, the next step is set.</span></div></li>
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f9e5b"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>See your progress, and be recognised for it</b><span>From Aspirant to Novice to Brother or Sister, each step sealed by an oath.</span></div></li>
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f9e5b"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Know the faith and its history in depth</b><span>The Grail Times, the Order's quarterly reserved for members.</span></div></li>
   </ul>
   <div class="rule"></div>
   <h2 style="font-size:clamp(24px,3.6vw,32px)"><span class="nm"></span>how much are you ready to invest each month in who you are called to become?</h2>
@@ -233,7 +235,7 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
     <button type="button" class="opt" data-v="none"><span class="k">D</span><span>Not now</span></button>
   </div>
   <div id="commitBox" hidden>
-    <label class="check"><input type="checkbox" id="f_regula"><span>I have read and accept the <a href="https://orderoftheholygrail.org/wp-content/uploads/2026/11/internal-regulations-ed1-k7q2x9m4.pdf" target="_blank" rel="noopener">Regula Ordinis</a>.</span></label>
+    <label class="check"><input type="checkbox" id="f_regula"><span>I have read and accept the <a href="https://orderoftheholygrail.org/wp-content/uploads/2026/11/internal-regulations-ed1-k7q2x9m4.pdf" target="_blank" rel="noopener">Internal Regulations</a> of the Order.</span></label>
     <div class="err" id="payErr"></div>
     <div class="actions"><button class="btn" id="payBtn" type="button">Continue</button></div>
   </div>
@@ -331,7 +333,13 @@ function validate(k){
       if (!$("#f_privacy").checked) return "Please accept to continue.";
       A.privacy = "Yes"; break;
     case "goals": if (!A.goals.length) return "Choose at least one."; break;
-    case "obstacle": A.obstacle = clean($("#f_obstacle").value, 1200); break;
+    case "obstacle":
+      A.holding = clean($("#f_obstacle").value, 550);
+      A.achieve = clean($("#f_achieve").value, 550);
+      if (A.holding.length < 10) return "Please tell us what is holding you back.";
+      if (A.achieve.length < 10) return "Please tell us what you want to achieve.";
+      A.obstacle = "Holding back: " + A.holding + " | Wants to achieve: " + A.achieve;
+      break;
     case "about":
       if (!A.sponsor) return "Please tell us if a member is introducing you.";
       A.sponsorName = A.sponsor === "Yes" ? clean($("#f_sponsor").value, 80) : "";
@@ -410,7 +418,7 @@ async function submit(){
   errEl.textContent = "";
   if ($("#hp_site").value) return;
   if (!A.plan) { errEl.textContent = "Choose your commitment."; return; }
-  if (!$("#f_regula").checked) { errEl.textContent = "Please accept the Regula Ordinis to continue."; shake(); return; }
+  if (!$("#f_regula").checked) { errEl.textContent = "Please accept the Internal Regulations to continue."; shake(); return; }
   if (Date.now() - t0 < 30000) { errEl.textContent = "Please take a moment to review your answers."; return; }
   A.regula = "Yes"; A.regulaEd = CONFIG.regulaEdition; A.regulaAt = new Date().toISOString();
   btn.disabled = true; btn.textContent = "One moment...";
