@@ -179,13 +179,12 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
   <div class="actions"><button class="btn" data-next>Continue</button></div>
 </section>
 
-<!-- 3 Obstacle and ambition -->
+<!-- 3 Obstacle -->
 <section class="step" data-step="obstacle" data-q>
   <div class="eyebrow"><b>II</b>Who you want to become</div>
-  <h2>What is holding you back today<span class="nm-end"></span>?</h2>
-  <textarea id="f_obstacle" maxlength="550" placeholder="Be specific..." style="min-height:96px"></textarea>
-  <h2 style="margin-top:30px">And what do you want to <em>achieve</em>?</h2>
-  <textarea id="f_achieve" maxlength="550" placeholder="Write freely..." style="min-height:96px"></textarea>
+  <h2>What is holding you back from what you want to <em>achieve</em><span class="nm-end"></span>?</h2>
+  <p class="lead">Be specific. No one becomes better by hiding from the truth.</p>
+  <textarea id="f_obstacle" maxlength="1200" placeholder="Write freely..."></textarea>
   <div class="err"></div>
   <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd"><kbd>Ctrl + Enter &crarr;</kbd></span></div>
 </section>
@@ -224,7 +223,7 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
     <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f9e5b"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Start every day with purpose</b><span>A shared morning commitment keeps you steady, with brothers and sisters who notice when you fall behind.</span></div></li>
     <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f9e5b"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Grow among people who raise your standards</b><span>Once a month the whole Order meets live: victories are shared, the next step is set.</span></div></li>
     <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f9e5b"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>See your progress, and be recognised for it</b><span>From Aspirant to Novice to Brother or Sister, each step sealed by an oath.</span></div></li>
-    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f9e5b"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Know the faith and its history in depth</b><span>The Grail Times, the Order's quarterly reserved for members.</span></div></li>
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f9e5b"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>A journey to deepen your faith</b><span>The Grail Times, the Order's members-only quarterly, takes you further with every issue.</span></div></li>
   </ul>
   <div class="rule"></div>
   <h2 style="font-size:clamp(24px,3.6vw,32px)"><span class="nm"></span>how much are you ready to invest each month in who you are called to become?</h2>
@@ -334,11 +333,8 @@ function validate(k){
       A.privacy = "Yes"; break;
     case "goals": if (!A.goals.length) return "Choose at least one."; break;
     case "obstacle":
-      A.holding = clean($("#f_obstacle").value, 550);
-      A.achieve = clean($("#f_achieve").value, 550);
-      if (A.holding.length < 10) return "Please tell us what is holding you back.";
-      if (A.achieve.length < 10) return "Please tell us what you want to achieve.";
-      A.obstacle = "Holding back: " + A.holding + " | Wants to achieve: " + A.achieve;
+      A.obstacle = clean($("#f_obstacle").value, 1200);
+      if (A.obstacle.length < 10) return "Please write at least a few words.";
       break;
     case "about":
       if (!A.sponsor) return "Please tell us if a member is introducing you.";
