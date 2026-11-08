@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex,nofollow">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://orderoftheholygrail.org https://holygrailknights.wordpress.com https://*.wp.com; connect-src https://script.google.com https://script.googleusercontent.com; frame-src https://challenges.cloudflare.com; form-action 'none'; base-uri 'none'; object-src 'none'">
-<title>Petition for Admission · Order of the Holy Grail</title>
+<title>Application for Admission · Order of the Holy Grail</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -129,222 +129,128 @@ footer{padding:0 24px 22px;text-align:center;font-size:11px;letter-spacing:.14em
   <div class="top"><button id="back" type="button" hidden>&larr; Back</button><span id="count"></span></div>
 </header>
 
-
 <main id="app">
 <!-- Honeypot: invisible to people, bots fill it -->
 <div class="hp" aria-hidden="true"><label>Website<input type="text" id="hp_site" tabindex="-1" autocomplete="off"></label></div>
 
 <!-- Intro -->
 <section class="step on center" data-step="intro">
-  <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double-bordeaux.png?w=240" alt="Order of the Knights of the Holy Grail">
-  <div class="eyebrow">Admissions are limited</div>
-  <h1>The Trial of <em>Admission</em></h1>
-  <p class="lead">This is not a sign-up form. It is the first trial of the Knight's Path: a few honest answers, and the commitment you are ready to make.</p>
+  <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double-bordeaux.png?w=240" alt="Order of the Holy Grail">
+  <div class="eyebrow">Office of Admissions &middot; Admissions are limited</div>
+  <h1>Christ needs His <em>Knights</em> again.</h1>
+  <p class="lead">The Order admits men and women ready to master their lives in body, soul, work and mind. Answer a few questions with truth. Every application is read personally.</p>
   <ol class="how">
-    <li><b>I</b>Answer with truth</li>
-    <li><b>II</b>Choose your commitment</li>
-    <li><b>III</b>Take your place at the Table</li>
+    <li><b>I</b>Who you are</li>
+    <li><b>II</b>Who you want to become</li>
+    <li><b>III</b>Your commitment</li>
   </ol>
-  <button class="btn" data-next>Begin the trial</button>
-  <p class="hint" style="margin-top:18px">About 3 minutes &middot; Strictly confidential</p>
+  <button class="btn" data-next>Begin your application</button>
+  <p class="hint" style="margin-top:18px">About 2 minutes &middot; Strictly confidential</p>
 </section>
 
-<!-- 01 Name -->
+<!-- 1 Name and email -->
 <section class="step" data-step="name" data-q>
-  <div class="eyebrow"><b>I</b>Your name</div>
-  <h2>What is your first name?</h2>
-  <p class="lead">The Order knows each of its members by name.</p>
-  <input type="text" id="f_name" maxlength="40" autocomplete="given-name" placeholder="Type your answer here">
+  <div class="eyebrow"><b>I</b>Who you are</div>
+  <h2>What is your <em>first name</em>?</h2>
+  <input type="text" id="f_name" maxlength="60" autocomplete="given-name" placeholder="Type your answer here">
+  <div class="field reveal">
+    <label for="f_email" id="emailLabel">Where should the Order write to you?</label>
+    <input type="email" id="f_email" maxlength="120" autocomplete="email" placeholder="name@example.com">
+  </div>
+  <label class="check"><input type="checkbox" id="f_privacy"><span>I agree that the Order may store and use my answers to process my application, as described in the <a href="https://orderoftheholygrail.org/privacy-policy/" target="_blank" rel="noopener">privacy policy</a>.</span></label>
   <div class="err"></div>
   <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd">press <kbd>Enter &crarr;</kbd></span></div>
 </section>
 
-<!-- 02 Email -->
-<section class="step" data-step="email" data-q>
-  <div class="eyebrow"><b>II</b>Contact</div>
-  <h2><span class="nm"></span>where should the Order <em>write to you</em>?</h2>
-  <p class="lead">Your welcome and your place at the Table are sent here. Your email is used for nothing else.</p>
-  <input type="email" id="f_email" maxlength="120" autocomplete="email" placeholder="name@example.com">
-  <label class="check"><input type="checkbox" id="f_privacy"><span>I agree that the Order may store and use my answers to process my petition and membership, as described in the <a href="https://orderoftheholygrail.org/privacy-policy/" target="_blank" rel="noopener">privacy policy</a>.</span></label>
-  <div class="err"></div>
-  <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd">press <kbd>Enter &crarr;</kbd></span></div>
-</section>
-
-<!-- 03 Goals -->
+<!-- 2 Goals -->
 <section class="step" data-step="goals" data-q>
-  <div class="eyebrow"><b>III</b>The Knight's Path</div>
-  <h2>Who do you want to <em>become</em> in the next 12 months?</h2>
+  <div class="eyebrow"><b>II</b>Who you want to become</div>
+  <h2><span class="nm"></span>who do you want to <em>become</em> in the next 12 months?</h2>
   <p class="lead">Choose all that apply.</p>
   <div class="opts" data-multi="goals">
-    <button type="button" class="opt" data-v="Body"><span class="k">A</span><span>Stronger in body and discipline<small>Training, health, self-mastery</small></span></button>
-    <button type="button" class="opt" data-v="Spirit"><span class="k">B</span><span>Deeper in faith and prayer<small>A real, daily life with Christ</small></span></button>
-    <button type="button" class="opt" data-v="Work"><span class="k">C</span><span>Greater in work and enterprise<small>Career, business, responsibility</small></span></button>
-    <button type="button" class="opt" data-v="Mind"><span class="k">D</span><span>Clearer in mind and judgment<small>Study, focus, sound decisions</small></span></button>
-    <button type="button" class="opt" data-v="Brotherhood"><span class="k">E</span><span>Part of a true brotherhood<small>Friends in faith, mentors, people who hold you accountable</small></span></button>
+    <button type="button" class="opt" data-v="Brotherhood"><span class="k">A</span><span>Part of a true brotherhood</span></button>
+    <button type="button" class="opt" data-v="Work"><span class="k">B</span><span>Greater in work and enterprise</span></button>
+    <button type="button" class="opt" data-v="Spirit"><span class="k">C</span><span>Deeper in faith and prayer</span></button>
+    <button type="button" class="opt" data-v="Mind"><span class="k">D</span><span>Clearer in mind and judgment</span></button>
+    <button type="button" class="opt" data-v="Body"><span class="k">E</span><span>Stronger in body and discipline</span></button>
   </div>
   <div class="err"></div>
   <div class="actions"><button class="btn" data-next>Continue</button></div>
 </section>
 
-<!-- 04 Obstacle -->
+<!-- 3 Obstacle (optional) -->
 <section class="step" data-step="obstacle" data-q>
-  <div class="eyebrow"><b>IV</b>The obstacle</div>
-  <h2>What is holding you back <em>today</em>?</h2>
-  <p class="lead">Be specific. No one becomes better by hiding from the truth.</p>
+  <div class="eyebrow"><b>II</b>Who you want to become</div>
+  <h2>What is holding you back today<span class="nm-end"></span>?</h2>
+  <p class="lead">Optional. A few honest words are enough.</p>
   <textarea id="f_obstacle" maxlength="1200" placeholder="Write freely..."></textarea>
   <div class="err"></div>
-  <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd"><kbd>Ctrl</kbd>+<kbd>Enter &crarr;</kbd></span></div>
+  <div class="actions"><button class="btn" data-next>Continue</button><span class="hint kbd"><kbd>Ctrl + Enter &crarr;</kbd></span></div>
 </section>
 
-<!-- 05 Commitment scale -->
-<section class="step" data-step="scale" data-q>
-  <div class="eyebrow"><b>V</b>Commitment</div>
-  <h2>From 1 to 10, how committed are you to changing this in the next <em>90 days</em>?</h2>
-  <p class="lead">Be honest. The Council values truth over ambition. 1 = just curious &middot; 10 = nothing will stop me</p>
-  <div class="scale" data-single="scale" data-noletters>
-    <button type="button" class="opt" data-v="1">1</button><button type="button" class="opt" data-v="2">2</button><button type="button" class="opt" data-v="3">3</button><button type="button" class="opt" data-v="4">4</button><button type="button" class="opt" data-v="5">5</button><button type="button" class="opt" data-v="6">6</button><button type="button" class="opt" data-v="7">7</button><button type="button" class="opt" data-v="8">8</button><button type="button" class="opt" data-v="9">9</button><button type="button" class="opt" data-v="10">10</button>
-  </div>
-  <div class="err"></div>
-</section>
-
-<!-- 06 Faith -->
-<section class="step" data-step="faith" data-q>
-  <div class="eyebrow"><b>VI</b>Faith</div>
-  <h2>What is your Christian <em>confession</em>?</h2>
-  <p class="lead">&nbsp;</p>
-  <div class="opts" data-single="confession" data-stay>
-    <button type="button" class="opt" data-v="Catholic"><span class="k">A</span><span>Catholic</span></button>
-    <button type="button" class="opt" data-v="Orthodox"><span class="k">B</span><span>Orthodox</span></button>
-    <button type="button" class="opt" data-v="Protestant / Evangelical"><span class="k">C</span><span>Protestant / Evangelical</span></button>
-    <button type="button" class="opt" data-v="Anglican"><span class="k">D</span><span>Anglican</span></button>
-    <button type="button" class="opt" data-v="Other Christian"><span class="k">E</span><span>Other Christian</span></button>
-  </div>
-  <label class="check"><input type="checkbox" id="f_commit"><span>I am ready to commit myself to the Kingdom of Christ.</span></label>
-  <div class="err"></div>
-  <div class="actions"><button class="btn" data-next>Continue</button></div>
-</section>
-
-<!-- Statement -->
-<section class="step center" data-step="statement">
-  <div class="rule"></div>
-  <p class="quote">The Order is not for everyone.<br>It asks for <em>discipline</em>, <em>presence</em> and <em>commitment</em>.</p>
-  <div class="rule"></div>
-  <p class="lead">Those who are admitted are expected to walk the Path with seriousness, alongside the other members of the Order.</p>
-  <button class="btn" data-next>I accept</button>
-</section>
-
-<!-- What awaits -->
-<section class="step" data-step="path">
-  <div class="eyebrow">The Knight's Path</div>
-  <h2>What awaits you in the <em>Order</em></h2>
-  <p class="lead">A rule of life for the modern knight: the victory over oneself, lived together.</p>
-  <ul class="perks">
-    <li><b>Weekly formation</b><span>A live gathering of the Order every week, to be formed in faith, discipline and character.</span></li>
-    <li><b>Daily accountability</b><span>A short daily check-in. No one walks alone, and no one is allowed to quietly give up.</span></li>
-    <li><b>The four pillars</b><span>Your own goals in body, faith, work and mind, measured and pursued with method.</span></li>
-    <li><b>A true brotherhood</b><span>A place at a Table of the Order: people of faith who want more from their lives, and expect more from you.</span></li>
-    <li><b>The Knight's Path</b><span>The book of the Order, to walk the Path day by day.</span></li>
-  </ul>
-  <div class="actions"><button class="btn" data-next>Continue</button></div>
-</section>
-
-<!-- 08 Sponsor -->
-<section class="step" data-step="sponsor" data-q>
-  <div class="eyebrow"><b>VII</b>Introduction</div>
-  <h2>Is a member of the Order <em>introducing</em> you?</h2>
-  <p class="lead">If someone brought you to the Order, tell us who: they will walk beside you.</p>
-  <div class="opts" data-single="sponsor" data-stay>
-    <button type="button" class="opt" data-v="Yes"><span class="k">A</span><span>Yes</span></button>
-    <button type="button" class="opt" data-v="No"><span class="k">B</span><span>No</span></button>
-  </div>
-  <div class="field reveal" id="sponsorField" hidden><label for="f_sponsor">Name of the member</label><input type="text" id="f_sponsor" maxlength="80" placeholder="First and last name"></div>
-  <div class="err"></div>
-  <div class="actions"><button class="btn" data-next>Continue</button></div>
-</section>
-
-<!-- 09 About -->
+<!-- 4 About -->
 <section class="step" data-step="about" data-q>
-  <div class="eyebrow"><b>VIII</b>About you</div>
-  <h2>Tell us a little <em>about yourself</em>.</h2>
-  <p class="lead">&nbsp;</p>
+  <div class="eyebrow"><b>I</b>Who you are</div>
+  <h2>Tell us a little <em>about yourself</em><span class="nm-end"></span>.</h2>
+  <div class="field" style="margin-top:22px">
+    <label>Is a member of the Order introducing you?</label>
+    <div class="opts" data-single="sponsor" data-stay data-noletters style="grid-template-columns:1fr 1fr;margin-top:10px">
+      <button type="button" class="opt" data-v="Yes"><span>Yes</span></button>
+      <button type="button" class="opt" data-v="No"><span>No</span></button>
+    </div>
+  </div>
+  <div class="field" id="sponsorField" hidden><label for="f_sponsor">Name of the member</label><input type="text" id="f_sponsor" maxlength="80" placeholder="First and last name"></div>
+  <div class="field"><label for="f_confession">Christian confession</label>
+    <select id="f_confession"><option value="">Select</option><option>Catholic</option><option>Orthodox</option><option>Protestant / Evangelical</option><option>Anglican</option><option>Other Christian</option></select></div>
+  <div class="field"><label for="f_country">Country</label><input type="text" id="f_country" maxlength="60" autocomplete="country-name" placeholder="e.g. United States"></div>
   <div class="field"><label for="f_age">Age</label><input type="number" id="f_age" min="18" max="99" inputmode="numeric" placeholder="e.g. 34"></div>
-  <div class="field"><label for="f_country">Country</label><input type="text" id="f_country" maxlength="60" autocomplete="country-name" placeholder="e.g. Italy"></div>
-  <div class="field"><label for="f_job">Profession</label><input type="text" id="f_job" maxlength="80" autocomplete="organization-title" placeholder="e.g. Entrepreneur"></div>
-  <div class="field"><label for="f_phone">WhatsApp (with country code)</label><input type="tel" id="f_phone" maxlength="24" autocomplete="tel" placeholder="+39 333 123 4567"></div>
+  <div class="field"><label for="f_phone">WhatsApp (with country code)</label><input type="tel" id="f_phone" maxlength="24" autocomplete="tel" placeholder="+1 555 123 4567"></div>
   <div class="field"><label for="f_source">How did you hear about the Order?</label>
     <select id="f_source"><option value="">Select</option><option>Instagram</option><option>YouTube</option><option>TikTok</option><option>A friend or member</option><option>Google</option><option>Other</option></select></div>
   <div class="err"></div>
   <div class="actions"><button class="btn" data-next>Continue</button></div>
 </section>
 
-<!-- 09 Plan -->
+<!-- 5 What awaits you + commitment -->
 <section class="step" data-step="plan" data-q>
-  <div class="eyebrow"><b>IX</b>Your commitment</div>
-  <h2><span class="nm"></span>how much are you ready to <em>invest</em> in who you are called to become?</h2>
-  <p class="lead">Answer honestly. There is no wrong answer.</p>
-  <div class="opts" data-single="plan">
-    <button type="button" class="opt" data-v="m30"><span class="k">A</span><span><b class="pp">$30+ <small>/ month</small></b></span></button>
-    <button type="button" class="opt" data-v="m300"><span class="k">B</span><span><b class="pp">$300+ <small>/ month</small></b></span></button>
-    <button type="button" class="opt" data-v="knight" id="optKnight"><span class="k">C</span><span><b class="pp">$3,000+ <small>/ month</small></b></span></button>
-    <button type="button" class="opt" data-v="none"><span class="k">D</span><span>Nothing, for now</span></button>
-  </div>
-  <div class="err"></div>
-  <div class="demo" id="demo">Preview mode: no data is sent and no payment is requested.</div>
-</section>
-
-<!-- Offer (30 / 300) -->
-<section class="step" data-step="offer">
-  <div class="eyebrow">Your place in the Order</div>
-  <h2>What you will <em>receive</em>.</h2>
-  <p class="lead">You may leave at any time.</p>
+  <div class="eyebrow"><b>III</b>Your commitment</div>
+  <h2>What awaits you in <em>the Order</em></h2>
+  <p class="lead">A path to master body, soul, work and mind, walked together.</p>
   <ul class="perks">
-    <li><b>Weekly gathering</b><span>A live gathering of the Order every week.</span></li>
-    <li><b>Daily accountability</b><span>A short daily check-in, so no one walks alone.</span></li>
-    <li><b>A place at a Table</b><span>Your Table of the Order, with the members who walk beside you.</span></li>
-    <li><b>The Knight's Path</b><span>The book of the Order, to walk the Path day by day.</span></li>
-    <li id="perkGM" hidden><b>A weekly call with the Grand Master</b><span>Every week, in person, with the Grand Master of the Order.</span></li>
+    <li><b>A brotherhood for life</b><span>Christian men and women who want more from their lives, and expect more from you. You will never walk alone again.</span></li>
+    <li><b>The Knight's Path</b><span>Forty days to take back command of your life: iron discipline, a living faith, a clear mind and the habits that make you unshakable.</span></li>
+    <li><b>Serviam, every morning</b><span>Each day begins with your brothers and sisters in the Order's private circle. One word, one promise, kept together.</span></li>
+    <li><b>The monthly gathering</b><span>Once a month the whole Order meets live. New members are welcomed, victories are shared, the next step is set.</span></li>
+    <li><b>Your rise in the Order</b><span>Aspirant on your first day, Novice after seven, Brother or Sister after forty, sealed by your oath.</span></li>
+    <li><b>The Grail Times</b><span>The Order's quarterly, reserved for members: its research, its history and the voice of the Grand Master.</span></li>
   </ul>
-  <div class="err" id="payErr"></div>
-  <div class="actions"><button class="btn" id="payBtn">Continue to payment</button></div>
-  <p class="secure"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><rect x="1" y="7" width="12" height="8" rx="1.5" stroke="#a59a88"/><path d="M4 7V5a3 3 0 0 1 6 0v2" stroke="#a59a88"/></svg>Secure payment processed by Stripe. Your card details never reach the Order.</p>
-</section>
-
-<!-- Knighthood -->
-<section class="step" data-step="knight">
-  <div class="eyebrow">Knighthood</div>
-  <h2>Knighthood is a <em>vocation</em>, not a subscription.</h2>
-  <p class="lead">Knights carry the Order: they sustain its works, lead its Tables and answer personally to the Grand Master. Those who apply give first, then present themselves.</p>
-  <ol class="how left">
-    <li><b>I</b>Your contribution of $3,000 a month</li>
-    <li><b>II</b>Your application: who you are, why you are called, how you will serve</li>
-    <li><b>III</b>A personal interview with the Grand Master</li>
-  </ol>
-  <div class="guar"><svg width="30" height="34" viewBox="0 0 30 34" fill="none"><path d="M15 1 2 6v10c0 8 6 14 13 17 7-3 13-9 13-17V6L15 1Z" stroke="#c9a96a" stroke-width="1.5"/><path d="m9.5 17 4 4 7-8" stroke="#c9a96a" stroke-width="1.8"/></svg><div><strong>Full refund guarantee</strong>If the Grand Master does not confirm your knighthood, your contribution is refunded in full.</div></div>
-  <div class="err" id="knightErr"></div>
-  <div class="stack">
-    <button class="btn" type="button" id="knightBtn">Apply for Knighthood &middot; $3,000 / month</button>
-    <button class="btn ghost" type="button" id="brotherBtn">Join the Brotherhood only</button>
+  <div class="rule"></div>
+  <h2 style="font-size:clamp(24px,3.6vw,32px)"><span class="nm"></span>how much are you ready to invest each month in who you are called to become?</h2>
+  <div class="opts" data-single="plan" data-stay style="margin-top:18px">
+    <button type="button" class="opt" data-v="m30"><span class="k">A</span><span><b class="pp">&euro;30 <small>/ month</small></b></span></button>
+    <button type="button" class="opt" data-v="m500"><span class="k">B</span><span><b class="pp">&euro;500 or more <small>/ month</small></b></span></button>
+    <button type="button" class="opt" data-v="m1000"><span class="k">C</span><span><b class="pp">&euro;1,000 or more <small>/ month</small></b></span></button>
+    <button type="button" class="opt" data-v="none"><span class="k">D</span><span>Not now</span></button>
   </div>
-  <p class="secure" style="justify-content:center"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><rect x="1" y="7" width="12" height="8" rx="1.5" stroke="#a59a88"/><path d="M4 7V5a3 3 0 0 1 6 0v2" stroke="#a59a88"/></svg>Secure payment processed by Stripe.</p>
+  <div id="commitBox" hidden>
+    <label class="check"><input type="checkbox" id="f_regula"><span>I have read and accept the <a href="https://orderoftheholygrail.org/wp-content/uploads/2026/11/internal-regulations-ed1-k7q2x9m4.pdf" target="_blank" rel="noopener">Regula Ordinis</a>.</span></label>
+    <div class="err" id="payErr"></div>
+    <div class="actions"><button class="btn" id="payBtn" type="button">Continue</button></div>
+  </div>
+  <div class="demo" id="demo">Preview mode: no data is sent.</div>
 </section>
 
-<!-- Exit (invests nothing) -->
+<!-- Not now -->
 <section class="step center" data-step="exit">
-  <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double-bordeaux.png?w=240" alt="">
-  <h2>Then the Order is <em>not for you</em>, for now.</h2>
+  <h2>Then the Order is not for you, <em>for now</em>.</h2>
   <p class="lead">Thank you for your honesty, <span class="nm2"></span>. Those who walk the Path invest in it. Until you are ready, you can still follow the Order and its works.</p>
-  <a class="btn" id="socialLink" href="https://orderoftheholygrail.org/" target="_blank" rel="noopener" style="text-decoration:none;display:inline-block">Follow the Order</a>
-  <p style="margin-top:22px"><button class="btn ghost" type="button" id="reconsider">Change my answer</button></p>
-</section>
-
-<!-- Received (no payment link configured yet) -->
-<section class="step center" data-step="received">
-  <img class="crest" src="https://orderoftheholygrail.org/wp-content/uploads/2026/10/order-shield-double-bordeaux.png?w=240" alt="">
-  <h2>Your place is <em>reserved</em>.</h2>
-  <p class="lead"><span class="nm2"></span>, the Order will write to you personally within 48 hours to complete your membership.</p>
+  <div class="stack">
+    <a class="btn" id="socialLink" href="https://www.instagram.com/orderoftheholygrail/" target="_blank" rel="noopener">Follow the Order</a>
+    <button class="btn ghost" id="reconsider" type="button">Change my answer</button>
+  </div>
 </section>
 </main>
-<footer>&copy; Order of the Knights of the Holy Grail</footer>
+<footer>&copy; Order of the Holy Grail</footer>
 
 <script>
 (() => {
@@ -353,44 +259,50 @@ if (window.top !== window.self) { try { window.top.location = window.self.locati
 /* ============ CONFIG ============ */
 const CONFIG = {
   endpoint: "https://script.google.com/macros/s/AKfycbzyyBh4NWbICFewjF29RUF2QecVU7KTtjH8hNTwmkI9tLv4ULT9I0-gBXMRffDa4XF_JA/exec",
-  turnstileSiteKey: "",
-  social: ""   // Instagram link of the Order, when ready
+  payPage: "https://orderoftheholygrail.org/payments/",
+  regulaEdition: "Edition I"
 };
-const PLAN_LABEL = { m30: "$30 / month", m300: "$300 / month", knight: "$3,000 / month" };
 /* ================================ */
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-const flow = ["intro","name","email","goals","obstacle","scale","faith","statement","path","sponsor","about","plan"];
+const flow = ["intro","name","goals","obstacle","about","plan"];
 const qTotal = flow.filter(k => stepEl(k).hasAttribute("data-q")).length;
 const PREVIEW = !CONFIG.endpoint;
 const t0 = Date.now();
 const id = (crypto.randomUUID ? crypto.randomUUID() : ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15>>c/4).toString(16)));
 const A = { goals: [] };
-let cur = "intro", history = [], busy = false, tsToken = "", interactions = 0;
+let cur = "intro", history = [], busy = false, interactions = 0;
 
 if (PREVIEW) $("#demo").style.display = "block";
 ["keydown","pointerdown","touchstart"].forEach(e => addEventListener(e, () => interactions++, { passive: true }));
 
 const clean = (s, n) => String(s || "").replace(/[\u0000-\u001f\u007f<>]/g, " ").replace(/\s+/g, " ").trim().slice(0, n);
-const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
 
 function roman(n){ return ["","I","II","III","IV","V","VI","VII","VIII","IX","X"][n] || n; }
 function stepEl(k){ return document.querySelector(`[data-step="${k}"]`); }
 function setErr(k, msg){ const e = $(".err", stepEl(k)); if (e) e.textContent = msg || ""; }
 
-function personalize(){
-  const n = A.name ? A.name + ", " : "";
-  $$(".nm").forEach(x => x.textContent = n);
-  $$(".nm2").forEach(x => x.textContent = A.name || "friend");
+/* First word only, first letter capitalised: "giovanni rossi" -> "Giovanni" */
+function firstName(raw){
+  const w = clean(raw, 60).split(" ")[0] || "";
+  return w ? w.charAt(0).toLocaleUpperCase() + w.slice(1) : "";
 }
+function personalize(){
+  const n = A.name || "";
+  $$(".nm").forEach(x => x.textContent = n ? n + ", " : "");
+  $$(".nm-end").forEach(x => x.textContent = n ? ", " + n : "");
+  $$(".nm2").forEach(x => x.textContent = n || "friend");
+  $("#emailLabel").textContent = n ? `Where should the Order write to you, ${n}?` : "Where should the Order write to you?";
+}
+$("#f_name").addEventListener("input", () => { A.name = firstName($("#f_name").value); personalize(); });
 
 function progress(){
   const i = flow.indexOf(cur);
   const qi = i < 0 ? 0 : flow.slice(0, i + 1).filter(k => stepEl(k).hasAttribute("data-q")).length;
-  $("#bar").style.width = (cur === "intro" ? 0 : ["offer","knight","received","exit"].includes(cur) ? 100 : Math.round(qi / (qTotal + 1) * 100)) + "%";
-  $("#count").textContent = ["intro","received","statement","path"].includes(cur) ? "" : cur === "knight" ? "Knighthood" : (cur === "offer" || cur === "exit") ? "" : `Trial ${roman(qi)} of ${roman(qTotal)}`;
-  $("#back").hidden = cur === "intro" || cur === "received" || history.length === 0;
+  $("#bar").style.width = (cur === "intro" ? 0 : cur === "exit" ? 100 : Math.round(qi / (qTotal + 1) * 100)) + "%";
+  $("#count").textContent = (cur === "intro" || cur === "exit") ? "" : `${roman(qi)} of ${roman(qTotal)}`;
+  $("#back").hidden = cur === "intro" || history.length === 0;
 }
 
 function show(k, back){
@@ -411,37 +323,28 @@ function show(k, back){
 
 function validate(k){
   switch (k){
-    case "name": A.name = clean($("#f_name").value, 40);
-      if (!/^[\p{L}][\p{L}' .-]{0,39}$/u.test(A.name)) return "Please enter your first name.";
-      break;
-    case "email":
+    case "name":
+      A.name = firstName($("#f_name").value);
+      if (!/^[\p{L}][\p{L}'.-]{0,39}$/u.test(A.name)) return "Please enter your first name.";
       A.email = clean($("#f_email").value, 120).toLowerCase();
       if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(A.email)) return "Please enter a valid email.";
       if (!$("#f_privacy").checked) return "Please accept to continue.";
       A.privacy = "Yes"; break;
     case "goals": if (!A.goals.length) return "Choose at least one."; break;
-    case "obstacle": A.obstacle = clean($("#f_obstacle").value, 1200);
-      if (A.obstacle.length < 10) return "Please write at least a few words."; break;
-    case "scale": if (!A.scale) return "Choose a number."; break;
-    case "faith": if (!A.confession) return "Choose your confession.";
-      if (!$("#f_commit").checked) return "Please confirm the declaration to continue.";
-      A.commit = "Yes"; break;
-    case "plan": if (!A.plan) return "Choose your commitment."; break;
-    case "sponsor":
-      if (!A.sponsor) return "Choose one.";
+    case "obstacle": A.obstacle = clean($("#f_obstacle").value, 1200); break;
+    case "about":
+      if (!A.sponsor) return "Please tell us if a member is introducing you.";
       A.sponsorName = A.sponsor === "Yes" ? clean($("#f_sponsor").value, 80) : "";
       if (A.sponsor === "Yes" && A.sponsorName.length < 2) return "Please write the name of the member.";
-      break;
-    case "about":
-      A.age = parseInt($("#f_age").value, 10);
+      A.confession = $("#f_confession").value;
+      if (!A.confession) return "Please choose your Christian confession.";
       A.country = clean($("#f_country").value, 60);
-      A.job = clean($("#f_job").value, 80);
-      A.phone = clean($("#f_phone").value, 24);
-      A.source = $("#f_source").value;
-      if (!(A.age >= 18 && A.age <= 99)) return "Admission is reserved to adults (18+).";
       if (A.country.length < 2) return "Please enter your country.";
-      if (A.job.length < 2) return "Please enter your profession.";
+      A.age = parseInt($("#f_age").value, 10);
+      if (!(A.age >= 18 && A.age <= 99)) return "Admission is reserved to adults (18+).";
+      A.phone = clean($("#f_phone").value, 24);
       if (!/^\+?[0-9 ()-]{7,22}$/.test(A.phone) || A.phone.replace(/\D/g,"").length < 7) return "Please enter a valid WhatsApp number with country code.";
+      A.source = $("#f_source").value;
       if (!A.source) return "Please tell us how you heard about the Order.";
       break;
   }
@@ -463,11 +366,13 @@ async function send(stage, extra){
   }catch(e){ return { ok: false, error: "network" }; }
 }
 
+function shake(){ stepEl(cur).animate([{transform:"translateX(0)"},{transform:"translateX(-6px)"},{transform:"translateX(6px)"},{transform:"translateX(0)"}],{duration:260}); }
+
 function next(){
   if (busy) return;
   const err = validate(cur);
   setErr(cur, err);
-  if (err) { stepEl(cur).animate([{transform:"translateX(0)"},{transform:"translateX(-6px)"},{transform:"translateX(6px)"},{transform:"translateX(0)"}],{duration:260}); return; }
+  if (err) { shake(); return; }
   if (stepEl(cur).hasAttribute("data-q")) send(cur);
   const i = flow.indexOf(cur);
   if (i < flow.length - 1) show(flow[i + 1]);
@@ -482,56 +387,50 @@ $$("[data-single],[data-multi]").forEach(group => {
       A[key] = $$(".opt.sel", group).map(x => x.dataset.v);
     } else {
       $$(".opt", group).forEach(x => x.classList.remove("sel"));
-      b.classList.add("sel"); A[key] = key === "scale" ? parseInt(b.dataset.v, 10) : b.dataset.v;
+      b.classList.add("sel"); A[key] = b.dataset.v;
       if (key === "plan"){
         $("#payErr").textContent = "";
-        if (A.plan === "none"){ A.plan = ""; send("exit"); setTimeout(() => show("exit"), 320); setErr(cur, ""); return; }
-        $("#perkGM").hidden = A.plan !== "m300";
-        $("#payBtn").disabled = false; $("#payBtn").textContent = "Continue to payment \u00b7 " + PLAN_LABEL[A.plan];
-        send("plan"); setTimeout(() => show(A.plan === "knight" ? "knight" : "offer"), 320);
-        setErr(cur, ""); return;
+        if (A.plan === "none"){ A.plan = ""; $("#commitBox").hidden = true; send("exit"); setTimeout(() => show("exit"), 320); return; }
+        $("#commitBox").hidden = false; send("plan");
+        $("#commitBox").scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
       }
       if (key === "sponsor"){
         const f = $("#sponsorField"); f.hidden = A.sponsor !== "Yes";
         if (!f.hidden) $("#f_sponsor").focus({ preventScroll: true });
       }
-      if (!group.hasAttribute("data-stay")) setTimeout(next, 320);
     }
     setErr(cur, "");
   }));
 });
 
-/* ---------- Payment ---------- */
-async function pay(btn, errEl, label){
+/* ---------- Submit and go to payment ---------- */
+async function submit(){
+  const btn = $("#payBtn"), errEl = $("#payErr");
   errEl.textContent = "";
   if ($("#hp_site").value) return;
-  if (Date.now() - t0 < 45000) { errEl.textContent = "Please take a moment to review your answers."; return; }
-  btn.disabled = true; btn.textContent = "Opening secure payment...";
+  if (!A.plan) { errEl.textContent = "Choose your commitment."; return; }
+  if (!$("#f_regula").checked) { errEl.textContent = "Please accept the Regula Ordinis to continue."; shake(); return; }
+  if (Date.now() - t0 < 30000) { errEl.textContent = "Please take a moment to review your answers."; return; }
+  A.regula = "Yes"; A.regulaEd = CONFIG.regulaEdition; A.regulaAt = new Date().toISOString();
+  btn.disabled = true; btn.textContent = "One moment...";
   const r = await send("submit", { plan: A.plan });
-  if (r.preview){ btn.textContent = "Preview: Stripe would open here"; return; }
-  if (r.ok && r.pay && /^https:\/\/(buy|checkout)\.stripe\.com\//.test(r.pay)){
+  if (r.preview){ btn.textContent = "Preview: the payment page would open here"; return; }
+  if (r.ok){
     try { localStorage.setItem("ohg_petition", JSON.stringify({ id, name: A.name, email: A.email, plan: A.plan })); } catch (e) {}
-    location.assign(r.pay); return;
+    location.assign(CONFIG.payPage); return;
   }
-  if (r.ok && r.pending){ show("received"); return; }
-  btn.disabled = false; btn.textContent = label;
+  btn.disabled = false; btn.textContent = "Continue";
   errEl.textContent = r.error === "rate" ? "Too many attempts. Please try again later."
                     : r.error === "network" ? "Connection problem. Please try again."
                     : "We could not verify your answers. Please refresh and try again.";
 }
-$("#payBtn").addEventListener("click", () => pay($("#payBtn"), $("#payErr"), "Continue to payment \u00b7 " + PLAN_LABEL[A.plan]));
-$("#knightBtn").addEventListener("click", () => { A.plan = "knight"; pay($("#knightBtn"), $("#knightErr"), "Apply for Knighthood \u00b7 $3,000 / month"); });
-$("#brotherBtn").addEventListener("click", () => {
-  A.plan = ""; $$(".opt", stepEl("plan")).forEach(x => x.classList.remove("sel"));
-  $("#optKnight").hidden = true;
-  history = history.filter(k => k !== "plan"); show("plan", true);
-});
+$("#payBtn").addEventListener("click", submit);
 
 $("#reconsider").addEventListener("click", () => {
   $$(".opt", stepEl("plan")).forEach(x => x.classList.remove("sel"));
   history = history.filter(k => k !== "plan"); show("plan", true);
 });
-if (CONFIG.social) $("#socialLink").href = CONFIG.social;
 
 /* ---------- Navigation ---------- */
 $$("[data-next]").forEach(b => b.addEventListener("click", next));
@@ -543,13 +442,10 @@ addEventListener("keydown", ev => {
   if (ev.key === "Enter"){
     if (ev.target.tagName === "TEXTAREA" && !(ev.ctrlKey || ev.metaKey)) return;
     if (ev.target.tagName === "A" || ev.target.tagName === "BUTTON") return;
-    if (["plan","offer","knight","received","exit"].includes(cur)) return;
+    if (["plan","exit"].includes(cur)) return;
     ev.preventDefault(); next(); return;
   }
   if (typing) return;
-  if (cur === "scale" && /^[0-9]$/.test(ev.key)){
-    const o = $(`.opt[data-v="${ev.key === "0" ? 10 : ev.key}"]`, s); if (o) o.click(); return;
-  }
   if (/^[a-e]$/i.test(ev.key) && !$("[data-noletters]", s)){
     const o = $$(".opt:not([hidden])", s)[ev.key.toLowerCase().charCodeAt(0) - 97];
     if (o) o.click();
